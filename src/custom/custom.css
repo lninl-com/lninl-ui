@@ -1,0 +1,9 @@
+page {
+    background-color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+    page {
+        background-color: #253334;
+    }
+}
