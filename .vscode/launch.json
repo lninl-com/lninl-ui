@@ -1,0 +1,78 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "command": "pnpm run dev:h5",
+      "name": "pnpm run dev:h5",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run build:h5",
+      "name": "pnpm run build:h5",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run dev:mp-weixin",
+      "name": "pnpm run dev:mp-weixin",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run build:mp-weixin",
+      "name": "pnpm run build:mp-weixin",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run dev:mp-toutiao",
+      "name": "pnpm run dev:mp-toutiao",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run build:mp-toutiao",
+      "name": "pnpm run build:mp-toutiao",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run dev:app",
+      "name": "pnpm run dev:app",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm run build:app",
+      "name": "pnpm run build:app",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm update",
+      "name": "pnpm update",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    },
+    {
+      "command": "pnpm install",
+      "name": "pnpm install",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/"
+    }
+  ]
+}

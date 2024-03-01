@@ -1,0 +1,12 @@
+{
+  "app.name": "XX APP",
+  "app.home": "Home",
+  "app.shop": "Shop",
+  "app.msg": "Message",
+  "app.me": "Me",
+  "app.info": "Info",
+  "app.my-home": "My Home",
+  "app.setting": "Setting",
+  "index.title": "XX Home",
+  "index.selected": "The selected tab bar is {tabbar}"
+}

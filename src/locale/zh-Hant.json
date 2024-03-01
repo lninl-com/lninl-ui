@@ -1,0 +1,12 @@
+{
+  "app.name": "XX應用",
+  "app.home": "首頁",
+  "app.shop": "商城",
+  "app.msg": "消息",
+  "app.me": "我的",
+  "app.info": "基本信息",
+  "app.my-home": "個人主頁",
+  "app.setting": "設置",
+  "index.title": "XX首頁",
+  "index.selected": "被選中的 TabBar 是 {tabbar}"
+}
