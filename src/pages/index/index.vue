@@ -1,3 +1,9 @@
+<route type="page">
+{
+  style: { navigationBarTitleText: '%index.title%' },
+}
+</route>
+
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
@@ -32,6 +38,7 @@ const list = ref([
     ],
   },
 ])
+
 function change(changeValue) {
   selected.value = changeValue
   uni.setNavigationBarTitle({ title: t(`app.${Array.isArray(changeValue) && changeValue.length > 1 ? changeValue[1] : changeValue}`) })
@@ -39,16 +46,16 @@ function change(changeValue) {
 
 // 测试get代码
 http.get('/', { params: { userName: 'name', password: '123456' }, custom: { toast: false } }).then((res) => {
-  console.log('get-res', res)
+  console.log('get-res', res) // 自己做逻辑处理
 }).catch((err) => {
-  console.log('get-err', err)
+  console.log('get-err', err) // 自己做逻辑处理
 })
 
 // 测试post代码
 http.post('/home/data', { userName: 'name', password: '123456' }).then((res) => {
-  console.log('post-res', res)
+  console.log('post-res', res) // 自己做逻辑处理
 }).catch((err) => {
-  console.log('post-err', err)
+  console.log('post-err', err) // 自己做逻辑处理
 })
 </script>
 
@@ -58,8 +65,8 @@ http.post('/home/data', { userName: 'name', password: '123456' }).then((res) => 
     <view>{{ t("index.selected", { tabbar: selected }) }}</view>
     <l-tab-bar :value="value" theme="tag" shape="normal" :split="false" @change="change">
       <l-tab-bar-item
-        v-for="item in list" :key="item.name" style="flex: 1/*mp-toutiao 要有此行*/" :icon="item.icon" :value="item.name"
-        :sub-tab-bar="item.children" :badge-props="item.badgeProps" :aria-label="item.ariaLabel"
+        v-for="item in list" :key="item.name" style="flex: 1/*mp-toutiao 要有此行*/" :icon="item.icon"
+        :value="item.name" :sub-tab-bar="item.children" :badge-props="item.badgeProps" :aria-label="item.ariaLabel"
       >
         {{ item.text }}
       </l-tab-bar-item>
@@ -68,7 +75,7 @@ http.post('/home/data', { userName: 'name', password: '123456' }).then((res) => 
 </template>
 
 <style>
-page,:root {
+page, :root {
   /* --l-tab-bar-active-bg: #f2f3df */
 }
 </style>

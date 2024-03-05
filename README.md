@@ -132,6 +132,7 @@ export default defineConfig({
 - <img src="https://vuejs.org/logo.svg" alt="Vue logo" width="14" align="center" /> [Vue 3](https://cn.vuejs.org/guide/introduction) - `<script setup>` 语法
 - <img src="https://unocss.dev/logo.svg" alt="UnoCSS logo" width="14" align="center" /> [UnoCSS](https://unocss.dev/guide/) - 高效、简洁的原子化 CSS 引擎
 - <img src="https://static.tdesign.tencent.com/favicon.ico" alt="TDesign logo" width="14" align="center" /> [lninl-ui](https://github.com/lninl-com/lninl-ui) - 兼容 [TDesign](https://tdesign.tencent.com/mobile-vue/getting-started)，大厂设计([Figma or Sketch](https://tdesign.tencent.com/source?tab=mobile))，[API](https://tdesign.tencent.com/mobile-vue/getting-started) 规范，功能完整
+- 🍍 [vite-plugin-uni-pages](https://github.com/uni-helper/vite-plugin-uni-pages) - 直接在vue页面上写路由配置，不用再切换到pages.json去修改，更好维护
 - 🍍 [Pinia](https://pinia.vuejs.org/zh/) & [pinia-plugin-persistedstate](https://prazdevs.github.io/pinia-plugin-persistedstate/zh/guide/) - 符合直觉、可持久化的状态管理
 - ⚡ [luch-request](https://www.quanzhan.co/luch-request/guide/3.x/#%E4%BB%8B%E7%BB%8D) - 网络请求封装，灵活强大
 - 🌐 [uni-app国际化](https://uniapp.dcloud.net.cn/tutorial/i18n.html) & [Vue I18n](https://vue-i18n.intlify.dev/guide/) - 全方位国际化方案，编辑器也支持

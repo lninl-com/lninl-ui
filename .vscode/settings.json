@@ -80,5 +80,6 @@
   "i18n-ally.localesPaths": [
     "src/locale"
   ],
-  "unot.switchMagic": false
+  "unot.switchMagic": false,
+  "i18n-ally.keystyle": "nested"
 }

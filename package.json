@@ -96,6 +96,7 @@
     "@dcloudio/uni-cli-shared": "3.0.0-3090920231225001",
     "@dcloudio/uni-stacktracey": "3.0.0-3090920231225001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3090920231225001",
+    "@uni-helper/vite-plugin-uni-pages": "^0.2.14",
     "@unocss/eslint-plugin": "^0.58.5",
     "@vue/runtime-core": "~3.2.47",
     "eslint": "^8.57.0",
@@ -113,6 +114,8 @@
     "*": "eslint --fix"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }

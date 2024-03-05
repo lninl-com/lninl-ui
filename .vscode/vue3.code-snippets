@@ -1,0 +1,60 @@
+{
+  "lninl-ui Vue3 SFC": {
+    "scope": "vue",
+    "prefix": "<",
+    "body": [
+      "<route type=\"page\">",
+      "{",
+      "  style: { navigationBarTitleText: '$1' },",
+      "}",
+      "</route>\n",
+      "<script setup>",
+      "//$3",
+      "</script>\n",
+      "<template>",
+      "  <view class=\"\">$2</view>",
+      "</template>\n",
+      "<style scoped>",
+      "/*  */",
+      "</style>\n",
+    ],
+  },
+  "lninl-ui route": {
+    "scope": "vue",
+    "prefix": "<ro",
+    "body": [
+      "<route type=\"page\">",
+      "{",
+      "  style: { navigationBarTitleText: '$1' },",
+      "}",
+      "</route>\n",
+    ],
+  },
+  "lninl-ui script": {
+    "scope": "vue",
+    "prefix": "<sc",
+    "body": [
+      "<script setup>",
+      "//$3",
+      "</script>\n"
+    ],
+  },
+  "lninl-ui template": {
+    "scope": "vue",
+    "prefix": "<te",
+    "body": [
+      "<template>",
+      "  <view class=\"\">$1</view>",
+      "</template>\n"
+    ],
+  },
+  "lninl-ui style": {
+    "scope": "vue",
+    "prefix": "<st",
+    "body": [
+      "<style scoped>",
+      "//",
+      "</style>\n"
+    ],
+  },
+}

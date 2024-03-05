@@ -14,8 +14,13 @@ dist
 
 # Editor directories and files
 .idea
+!.idea/jsLinters/eslint.xml
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# 插件vite-plugin-uni-pages生成的文件
+uni-pages.d.ts
+src/pages.json
