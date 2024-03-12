@@ -6,7 +6,7 @@ import unocss from 'unocss/vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
-    UniHelperPages(),
+    UniHelperPages({ dir: '{src/pages,src/**/demos/**}' }), // 自动生成pages.json配置。如果不想生成框架内组件的测试页面，可去掉src/**/demos/**
     uni(),
     unocss(),
   ],

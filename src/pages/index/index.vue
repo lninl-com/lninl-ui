@@ -7,6 +7,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
+import { onLoad } from '@dcloudio/uni-app'
 import { http } from '@/custom/config'
 
 const { t } = useI18n()
@@ -44,24 +45,26 @@ function change(changeValue) {
   uni.setNavigationBarTitle({ title: t(`app.${Array.isArray(changeValue) && changeValue.length > 1 ? changeValue[1] : changeValue}`) })
 }
 
-// 测试get代码
-http.get('/', { params: { userName: 'name', password: '123456' }, custom: { toast: false } }).then((res) => {
-  console.log('get-res', res) // 自己做逻辑处理
-}).catch((err) => {
-  console.log('get-err', err) // 自己做逻辑处理
-})
+// // 测试get代码
+// http.get('/', { params: { userName: 'name', password: '123456' }, custom: { toast: false } }).then((res) => {
+//   console.log('get-res', res) // 自己做逻辑处理
+// }).catch((err) => {
+//   console.log('get-err', err) // 自己做逻辑处理
+// })
 
-// 测试post代码
-http.post('/home/data', { userName: 'name', password: '123456' }).then((res) => {
-  console.log('post-res', res) // 自己做逻辑处理
-}).catch((err) => {
-  console.log('post-err', err) // 自己做逻辑处理
-})
+// // 测试post代码
+// http.post('/home/data', { userName: 'name', password: '123456' }).then((res) => {
+//   console.log('post-res', res) // 自己做逻辑处理
+// }).catch((err) => {
+//   console.log('post-err', err) // 自己做逻辑处理
+// })
 </script>
 
 <template>
   <view class="content p32rpx">
-    <view>{{ t('app.name') }}</view>
+    <view class="title">
+      {{ t('app.name') }}
+    </view>
     <view>{{ t("index.selected", { tabbar: selected }) }}</view>
     <l-tab-bar :value="value" theme="tag" shape="normal" :split="false" @change="change">
       <l-tab-bar-item

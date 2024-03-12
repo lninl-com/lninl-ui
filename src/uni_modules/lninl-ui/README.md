@@ -28,6 +28,7 @@
 # 创建项目
 npm install -g @vue/cli
 npx degit dcloudio/uni-preset-vue#vite my-vue3-project
+cd my-vue3-project
 
 # 安装 lninl-ui UI开发组件
 pnpm i lninl-ui
@@ -86,8 +87,6 @@ export default defineConfig({
 ```
 
 ### 添加或修改功能
-
-核心代码位于 ./src/uni_modules/lninl-ui/ 。
 
 目前只完成组件：
 

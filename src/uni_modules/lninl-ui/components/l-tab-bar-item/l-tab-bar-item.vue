@@ -28,11 +28,11 @@ let activeValue = ref()
 let itemCount = ref()
 let updateChild = () => {};
 
-// #ifndef MP-TOUTIAO
+// #ifndef MP-TOUTIAO || MP-LARK
 ({ split, shape, theme, defaultIndex, activeValue, itemCount, updateChild } = inject('tab-bar'))
 // #endif
 
-// #ifdef MP-TOUTIAO
+// #ifdef MP-TOUTIAO || MP-LARK
 // 头条和飞书的provide/inject有bug，需要在onMounted中进行
 onMounted(() => {
   const parent = inject('tab-bar')

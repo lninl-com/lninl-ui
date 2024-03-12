@@ -20,4 +20,12 @@ module.exports = antfu({
       wx: true,
     },
   },
+  overrides: [
+    {
+      files: ['**/__test__/**'],
+      env: {
+        jest: true,
+      },
+    },
+  ],
 })

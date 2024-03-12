@@ -28,6 +28,7 @@
 # 创建项目
 npm install -g @vue/cli
 npx degit dcloudio/uni-preset-vue#vite my-vue3-project
+cd my-vue3-project
 
 # 安装 lninl-ui UI开发组件
 pnpm i lninl-ui
@@ -35,6 +36,9 @@ pnpm i lninl-ui
 npm i lninl-ui
 # 或
 yarn add lninl-ui
+
+# 更新uniapp依赖
+npx @dcloudio/uvm@latest
 ```
 
 ### 配置

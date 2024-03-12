@@ -77,7 +77,7 @@ function updateChild(currentValue) {
 }
 updateChild(props.value)
 
-// #ifndef MP-TOUTIAO
+// #ifndef MP-TOUTIAO || MP-LARK
 provide('tab-bar', {
   ...toRefs(props),
   defaultIndex,
@@ -87,7 +87,7 @@ provide('tab-bar', {
 })
 // #endif
 onMounted(() => {
-  // #ifdef MP-TOUTIAO
+  // #ifdef MP-TOUTIAO || MP-LARK
   // 头条和飞书的provide/inject有bug，需要在onMounted中进行
   provide('tab-bar', {
     ...toRefs(props),
