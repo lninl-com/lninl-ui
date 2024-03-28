@@ -10,4 +10,9 @@ export default defineConfig({
     uni(),
     unocss(),
   ],
+  build: {
+    watch: {
+      exclude: ['node_modules/**', '/__uno.css'], // 解决mp-weixin下 “Error: EBUSY: resource busy or locked, lstat”崩溃问题
+    },
+  },
 })

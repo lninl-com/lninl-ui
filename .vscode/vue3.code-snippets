@@ -57,4 +57,22 @@
       "</style>\n"
     ],
   },
+  "lninl-ui test": {
+    "scope": "javascript",
+    "prefix": "test",
+    "body": [
+      "/* eslint-disable no-undef */",
+      "describe('/pages/$1', () => {",
+      "  let page",
+      "  beforeAll(async () => {",
+      "    page = await program.currentPage()",
+      "    await page.waitFor(3000)",
+      "  })\n",
+      "  it('title', async () => {",
+      "    page = await program.reLaunch('/pages/$1')",
+      "    expect(await (await page.$('.title')).text()).toContain('$2')",
+      "  })",
+      "})\n"
+    ],
+  },
 }

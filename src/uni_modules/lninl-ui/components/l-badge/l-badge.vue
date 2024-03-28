@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+
 const props = defineProps({
   /** 颜色 */
   color: {
@@ -107,43 +108,43 @@ const badgeValue = computed(() => {
 
 <template>
   <view
-    class="${name} l-badge inline-block relative v-top"
+    class="class l-class l-badge l-badge inline-block relative v-top"
     :class="{
-      '${name}__ribbon-outer absolute top-0 right-0': props.shape === 'ribbon',
+      'l-badge__ribbon-outer absolute top-0 right-0': props.shape === 'ribbon',
     }"
   >
-    <view class="${name}__content">
+    <view class="l-badge__content">
       <slot v-if="!props.content" />
-      <text v-else class="${name}__content-text block lh-48rpx">
+      <text v-else class="l-badge__content-text block lh-48rpx">
         {{ props.content }}
       </text>
     </view>
     <view
       v-if="isShowBadge"
-      class="${name}--basic ${prefix}-has-count fw-$td-badge-font-weight,600 px-[--l-badge-basic-padding,8rpx] py-0 b-rd-[--l-badge-border-radius,4rpx] lh-[--l-badge-basic-height,32rpx] text-center absolute h-[--l-badge-basic-height,32rpx] right-0 top-0 z-100 translate-x-50% translate-y--50% bg-[--l-badge-bg-color,theme(error-color)] font-size-[--l-badge-font-size,theme(font-size-xs)] c-[--l-badge-text-color,theme(font-white-1)]"
+      class="l-badge--basic t-has-count fw-$td-badge-font-weight,600 px-[--l-badge-basic-padding,8rpx] py-0 b-rd-[--l-badge-border-radius,4rpx] lh-[--l-badge-basic-height,32rpx] text-center absolute h-[--l-badge-basic-height,32rpx] right-0 top-0 z-100 translate-x-50% translate-y--50% bg-[--l-badge-bg-color,theme(error-color)] font-size-[--l-badge-font-size,theme(font-size-xs)] c-[--l-badge-text-color,theme(font-white-1)]"
       :class="{
-        '${name}--dot h-[--l-badge-dot-size,16rpx] min-w-[--l-badge-dot-size,16rpx] b-rd-50% px-0 py-0': props.dot,
-        '${name}--${props.size} font-size-[--l-badge-large-font-size,theme(font-size-s)] h-[--l-badge-large-height,40rpx] min-w-[--l-badge-large-height,40rpx] lh-[--l-badge-large-height,40rpx] py-0 px-[--l-badge-large-padding,10rpx]':
+        'l-badge--dot h-[--l-badge-dot-size,16rpx] min-w-[--l-badge-dot-size,16rpx] b-rd-50% px-0 py-0': props.dot,
+        'l-badge--${props.size} font-size-[--l-badge-large-font-size,theme(font-size-s)] h-[--l-badge-large-height,40rpx] min-w-[--l-badge-large-height,40rpx] lh-[--l-badge-large-height,40rpx] py-0 px-[--l-badge-large-padding,10rpx]':
           props.size === 'large',
-        '${name}--${props.shape} b-rd-[calc(var(--l-badge-large-height,40rpx)/2)]':
+        'l-badge--${props.shape} b-rd-[calc(var(--l-badge-large-height,40rpx)/2)]':
           props.size === 'large' && props.shape === 'circle',
-        '${name}--${props.shape} b-rd-[calc(var(--l-badge-basic-height,32rpx)/2)]': props.shape === 'circle',
-        '${name}--${props.shape} b-rd-[--l-badge-bubble-border-radius,20rpx,20rpx,20rpx,2rpx]':
+        'l-badge--${props.shape} b-rd-[calc(var(--l-badge-basic-height,32rpx)/2)]': props.shape === 'circle',
+        'l-badge--${props.shape} b-rd-[--l-badge-bubble-border-radius,20rpx,20rpx,20rpx,2rpx]':
           props.shape === 'bubble',
-        '${name}--${props.shape} inline-block rotate-45 b-rd-0': props.shape === 'ribbon',
-        '${name}--count min-w-[--l-badge-basic-width,32rpx] whitespace-nowrap box-border': !props.dot && props.count,
+        'l-badge--${props.shape} inline-block rotate-45 b-rd-0': props.shape === 'ribbon',
+        'l-badge--count min-w-[--l-badge-basic-width,32rpx] whitespace-nowrap box-border': !props.dot && props.count,
       }"
       :style="badgeStyles"
     >
       <view
         v-if="props.shape === 'ribbon'"
-        class="${name}__ribbon--before b-b-width-[--l-badge-basic-height,32rpx] b-l-width-[--l-badge-basic-height,32rpx] b-l-transparent b-b-solid b-l-solid content-empty absolute h-0 w-0 bottom-0 left-[calc(-1*var(--l-badge-basic-height,32rpx)+1rpx)] b-b-color-[--l-badge-bg-color,theme(error-color)]"
+        class="l-badge__ribbon--before b-b-width-[--l-badge-basic-height,32rpx] b-l-width-[--l-badge-basic-height,32rpx] b-l-transparent b-b-solid b-l-solid content-empty absolute h-0 w-0 bottom-0 left-[calc(-1*var(--l-badge-basic-height,32rpx)+1rpx)] b-b-color-[--l-badge-bg-color,theme(error-color)]"
         :style="props.color ? `border-color: ${props.color}` : ''"
       />
       {{ badgeValue }}
       <view
         v-if="props.shape === 'ribbon'"
-        class="${name}__ribbon--after b-b-width-[--l-badge-basic-height,32rpx] b-l-width-[--l-badge-basic-height,32rpx] b-l-transparent b-b-solid b-l-solid content-empty absolute h-0 w-0 bottom-0 right-[calc(-1*var(--l-badge-basic-height,32rpx)+1rpx)] b-b-color-[--l-badge-bg-color,theme(error-color)]"
+        class="l-badge__ribbon--after b-b-width-[--l-badge-basic-height,32rpx] b-l-width-[--l-badge-basic-height,32rpx] b-l-transparent b-b-solid b-l-solid content-empty absolute h-0 w-0 bottom-0 right-[calc(-1*var(--l-badge-basic-height,32rpx)+1rpx)] b-b-color-[--l-badge-bg-color,theme(error-color)]"
         :style="props.color ? `border-color: ${props.color}` : ''"
       />
     </view>

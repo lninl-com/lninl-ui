@@ -2,7 +2,7 @@
   "id": "lninl-ui",
   "name": "lninl-ui",
   "displayName": "lninl-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "一个基于 Vue 3 & UnoCSS，兼容 TDesign 的 uni-app UI开发组件",
   "author": "lninl-ui",
   "license": "MIT",
@@ -100,21 +100,21 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "vue": "~3.2.47",
-    "vue-i18n": "^9.10.1"
+    "vue": "3.3.11",
+    "vue-i18n": "^9.10.2"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.7.0",
-    "@commitlint/cli": "^19.0.3",
-    "@commitlint/config-conventional": "^19.0.3",
+    "@antfu/eslint-config": "^2.11.3",
+    "@commitlint/cli": "^19.2.1",
+    "@commitlint/config-conventional": "^19.1.0",
     "@dcloudio/types": "^3.4.8",
-    "@unocss/eslint-plugin": "^0.58.5",
+    "@unocss/eslint-plugin": "^0.58.7",
     "@vue/runtime-core": "~3.2.47",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
-    "simple-git-hooks": "^2.9.0",
-    "unocss": "^0.58.5",
-    "unocss-preset-weapp": "^0.58.6"
+    "simple-git-hooks": "^2.11.1",
+    "unocss": "^0.58.7",
+    "unocss-preset-weapp": "^0.58.7"
   },
   "simple-git-hooks": {
     "pre-commit": "npx --no-install -- lint-staged",
@@ -124,6 +124,8 @@
     "*": "eslint --fix"
   },
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
