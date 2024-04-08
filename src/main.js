@@ -11,7 +11,7 @@ import zhHant from './locale/zh-Hant.json'
 import { config } from './custom/config'
 import mixin from './custom/mixin'
 
-import 'uno.css'
+import 'virtual:uno.css'
 
 export function createApp() {
   const app = createSSRApp(App)

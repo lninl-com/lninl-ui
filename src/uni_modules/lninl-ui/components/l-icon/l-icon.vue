@@ -1,5 +1,6 @@
 <script setup>
 import { computed } from 'vue'
+
 const props = defineProps({
   /** 图标颜色 */
   color: {

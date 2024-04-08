@@ -121,7 +121,7 @@ const badgeValue = computed(() => {
     </view>
     <view
       v-if="isShowBadge"
-      class="l-badge--basic t-has-count fw-$td-badge-font-weight,600 px-[--l-badge-basic-padding,8rpx] py-0 b-rd-[--l-badge-border-radius,4rpx] lh-[--l-badge-basic-height,32rpx] text-center absolute h-[--l-badge-basic-height,32rpx] right-0 top-0 z-100 translate-x-50% translate-y--50% bg-[--l-badge-bg-color,theme(error-color)] font-size-[--l-badge-font-size,theme(font-size-xs)] c-[--l-badge-text-color,theme(font-white-1)]"
+      class="l-badge--basic l-has-count fw-$l-badge-font-weight,600 px-[--l-badge-basic-padding,8rpx] py-0 b-rd-[--l-badge-border-radius,4rpx] lh-[--l-badge-basic-height,32rpx] text-center absolute h-[--l-badge-basic-height,32rpx] right-0 top-0 z-100 translate-x-50% translate-y--50% bg-[--l-badge-bg-color,theme(error-color)] font-size-[--l-badge-font-size,theme(font-size-xs)] c-[--l-badge-text-color,theme(font-white-1)]"
       :class="{
         'l-badge--dot h-[--l-badge-dot-size,16rpx] min-w-[--l-badge-dot-size,16rpx] b-rd-50% px-0 py-0': props.dot,
         'l-badge--${props.size} font-size-[--l-badge-large-font-size,theme(font-size-s)] h-[--l-badge-large-height,40rpx] min-w-[--l-badge-large-height,40rpx] lh-[--l-badge-large-height,40rpx] py-0 px-[--l-badge-large-padding,10rpx]':
