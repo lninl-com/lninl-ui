@@ -1,0 +1,39 @@
+
+h1 {
+  font-size: 48rpx;
+  font-weight: 700;
+  line-height: 64rpx;
+  margin: 48rpx 32rpx 0 32rpx;
+  color: var(--l-font-gray-1, rgba(0, 0, 0, 0.9));
+}
+
+h2 {
+  margin: var(--l-spacer-4, 64rpx) 32rpx 0 32rpx;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 52rpx;
+}
+
+h3 {
+  margin: var(--l-spacer, 32rpx) 32rpx;
+  font-size: var(--l-font-size-base, 14px);
+  white-space: pre-line;
+  color: var(--l-font-gray-2, rgba(0, 0, 0, 0.6));
+  line-height: 44rpx;
+}
+
+p {
+  font-size: 14px;
+  color: var(--l-font-gray-2, rgba(0, 0, 0, 0.6));
+  margin: 32rpx;
+  line-height: 22px;
+}
+
+div {
+  font-size: 14px;
+  color: var(--l-font-gray-2, rgba(0, 0, 0, 0.6));
+  margin: 32rpx;
+  line-height: 44rpx;
+  display:flex;
+  align-items: center;
+}

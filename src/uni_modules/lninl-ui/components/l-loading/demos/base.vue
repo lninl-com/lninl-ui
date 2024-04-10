@@ -5,14 +5,14 @@
 </route>
 
 <template>
-  <l-loading />
-  <l-loading reverse />
-  <l-loading theme="spinner" :indicator="true" />
-  <l-loading theme="dots" size="80rpx" />
+  <div>
+    <l-loading class="mr-80rpx" />
+    <l-loading class="mr-80rpx" reverse />
+    <l-loading class="mr-80rpx" theme="spinner" :indicator="true" />
+    <l-loading class="mr-80rpx" theme="dots" size="80rpx" />
+  </div>
 </template>
 
-<style scoped>
-.l-loading {
-  margin-right: 64px;
-}
+<style>
+@import "../../lninl-ui/demo.css"
 </style>

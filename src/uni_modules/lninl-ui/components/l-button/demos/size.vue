@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <l-button size="large" theme="primary">
       按钮 48
     </l-button>
@@ -16,9 +16,5 @@
 </template>
 
 <style scoped>
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 16px;
-}
+@import "../../lninl-ui/demo.css"
 </style>

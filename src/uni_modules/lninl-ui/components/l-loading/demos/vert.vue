@@ -1,24 +1,12 @@
-<route type="page">
-{
-  style: { navigationBarTitleText: '组件类型' },
-}
-</route>
-
-<script lang="ts" setup></script>
+<script setup></script>
 
 <template>
-  <div class="container">
-    <l-loading text="加载中" layout="vertical" />
-    <l-loading theme="spinner" text="加载中..." layout="vertical" />
+  <div>
+    <l-loading class="mr-80rpx" text="加载中" layout="vertical" />
+    <l-loading class="mr-80rpx" theme="spinner" text="加载中..." layout="vertical" />
   </div>
 </template>
 
 <style scoped>
-.container {
-  display: flex;
-}
-
-.l-loading {
-  margin-right: 64px;
-}
+@import "../../lninl-ui/demo.css"
 </style>

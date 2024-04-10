@@ -255,7 +255,7 @@ function tap(e) {
     :id="tId"
     :style="computedStyle"
     :data-custom="props.customDataset"
-    class="l-button touch-manipulation bg-none fw-$l-button-font-weight,600 bg-transparent text-center relative cursor-pointer v-top select-none whitespace-nowrap outline-none justify-center items-center transition-all duration-[0.3s] after:(block border-solid content-empty absolute h-[200%] w-[200%] left-0 top-0 box-border origin-lt scale-50)"
+    class="l-button touch-manipulation bg-none fw-$l-button-font-weight,600 bg-transparent text-center relative cursor-pointer v-top select-none whitespace-nowrap outline-none justify-center items-center transition-all duration-[0.3s] after:(block border-solid content-empty absolute h-[200%] w-[200%] left-0 top-0 box-border origin-[0_0] scale-50)"
     :class="{
       'l-button--size-extra-small font-size-[--l-button-extra-small-font-size,theme(font-size-base)] pl-[--l-button-extra-small-padding-horizontal,16rpx] pr-[--l-button-extra-small-padding-horizontal,16rpx] h-[--l-button-extra-small-height,56rpx] lh-[--l-button-extra-small-height,56rpx]': props.size === 'extra-small',
       'l-button--size-small font-size-[--l-button-small-font-size,theme(font-size-base)] pl-[--l-button-small-padding-horizontal,24rpx] pr-[--l-button-small-padding-horizontal,24rpx] h-[--l-button-small-height,64rpx] lh-[--l-button-small-height,64rpx]': props.size === 'small',

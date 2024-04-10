@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="p-16rpx bg-[#181818]">
     <l-button size="large" ghost theme="primary">
       幽灵按钮
     </l-button>
@@ -13,13 +13,5 @@
 </template>
 
 <style scoped>
-.row {
-  display: flex;
-  padding: 16px;
-  background-color: #181818;
-}
-
-.l-button + .l-button {
-  margin-left: 16px;
-}
+@import "../../lninl-ui/demo.css"
 </style>

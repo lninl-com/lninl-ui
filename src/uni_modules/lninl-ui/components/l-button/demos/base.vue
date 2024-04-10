@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div>
     <l-button size="large" theme="primary">
       填充按钮
     </l-button>
@@ -10,7 +10,7 @@
       填充按钮
     </l-button>
   </div>
-  <div class="row">
+  <div>
     <l-button size="large" theme="primary" variant="outline">
       描边按钮
     </l-button>
@@ -21,16 +21,5 @@
 </template>
 
 <style scoped>
-.row {
-  display: flex;
-  padding: 0 16px;
-}
-
-.row + .row {
-  margin-top: 16px;
-}
-
-.l-button + .l-button {
-  margin-left: 16px;
-}
+@import "../../lninl-ui/demo.css"
 </style>

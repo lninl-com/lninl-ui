@@ -1,5 +1,5 @@
 <template>
-  <view class="row">
+  <div>
     <l-button theme="primary" size="large">
       填充按钮
     </l-button>
@@ -8,20 +8,12 @@
       填充按钮
     </l-button>
     <l-button theme="primary" size="large" icon="search" shape="circle" aria-label="搜索" />
-  </view>
+  </div>
   <l-button theme="primary" size="large" block t-class="external-class">
     填充按钮
   </l-button>
 </template>
 
 <style scoped>
-.row {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 32rpx 32rpx;
-}
-
-.rectangle-button {
-  border-radius: 0;
-}
+@import "../../lninl-ui/demo.css"
 </style>

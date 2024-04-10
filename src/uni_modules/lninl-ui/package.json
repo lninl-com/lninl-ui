@@ -2,7 +2,7 @@
   "id": "lninl-ui",
   "name": "lninl-ui",
   "displayName": "lninl-ui",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "一个基于 Vue 3 & UnoCSS，兼容 TDesign 的 uni-app UI开发组件",
   "author": "lninl-ui",
   "license": "MIT",
@@ -101,20 +101,20 @@
   },
   "dependencies": {
     "vue": "3.4.21",
-    "vue-i18n": "^9.11.0"
+    "vue-i18n": "^9.11.1"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^2.12.2",
+    "@antfu/eslint-config": "^2.13.2",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",
     "@dcloudio/types": "^3.4.8",
-    "@unocss/eslint-plugin": "^0.59.0",
+    "@unocss/eslint-plugin": "~0.58.9",
     "@vue/runtime-core": "~3.4.21",
     "eslint": "^8.57.0",
     "lint-staged": "^15.2.2",
     "simple-git-hooks": "^2.11.1",
-    "unocss": "^0.59.0",
-    "unocss-preset-weapp": "^0.59.0"
+    "unocss": "~0.58.9",
+    "unocss-preset-weapp": "^0.59.1"
   },
   "simple-git-hooks": {
     "pre-commit": "npx --no-install -- lint-staged",
