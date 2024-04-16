@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <p class="dp">
     <l-button size="large" theme="primary">
       按钮 48
     </l-button>
@@ -12,9 +12,9 @@
     <l-button size="extra-small" theme="primary">
       按钮 28
     </l-button>
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

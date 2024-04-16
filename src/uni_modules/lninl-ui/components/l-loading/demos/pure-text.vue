@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <p class="dp">
     <l-loading :indicator="false" text="加载中..." />
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

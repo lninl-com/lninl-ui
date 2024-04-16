@@ -1,8 +1,22 @@
 <script setup>
-import { computed, ref, watch } from 'vue'
+import { computed, ref, watch, watchEffect } from 'vue'
 
 // Props 定义
 const props = defineProps({
+  /** 值，搜索关键词。支持语法糖 v-model 或 v-model:value */
+  value: {
+    type: String,
+    default: '',
+  },
+  modelValue: {
+    type: String,
+    default: '',
+  },
+  /** 输入框的值，非受控属性 */
+  defaultValue: {
+    type: String,
+    default: '',
+  },
   /** 自定义右侧操作按钮文字 */
   action: {
     type: String,
@@ -93,7 +107,7 @@ const props = defineProps({
   /** 指定 placeholder 的样式类 */
   placeholderClass: {
     type: String,
-    default: '',
+    default: 'input-placeholder',
   },
   /** 左侧图标 */
   leftIcon: {
@@ -130,27 +144,45 @@ const props = defineProps({
     type: String,
     default: 'text',
   },
+  /** 样式 */
+  style: {
+    type: Object,
+    default: () => { return {} },
+  },
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => { return {} },
+  },
 })
 
 const emits = defineEmits(['update:value', 'update:modelValue', 'action-click', 'blur', 'change', 'clear', 'submit', 'focus'])
 const computedStyle = computed(() => {
-  return [props.style, props.customStyle].filter(Boolean).join(' ')
+  return [props.style, props.customStyle].filter(item => item != null && item !== '').join(' ')
 })
-const searchValue = ref(props.value)
+const innerValue = ref(props.value || props.modelValue || props.defaultValue)
 watch(
-  () => searchValue.value,
-  value => emits('update:modelValue', value),
+  () => innerValue.value,
+  (value) => {
+    emits('update:modelValue', value)
+  },
 )
-const focused = ref(props.focus)
+watchEffect(() => {
+  if (props.value !== undefined)
+    innerValue.value = props.value
+  if (props.modelValue !== undefined)
+    innerValue.value = props.modelValue
+})
+
+const focused = ref(props.focus || props.autoFocus)
+const holdKeyboard = ref(props.holdKeyboard)
 
 function handleInput(e) {
   const { value } = e.detail
-
   if (props.maxlength && typeof props.maxlength === 'number' && props.maxlength > 0) {
     const str = String(value ?? '')
     const length = str.length > props.maxlength ? props.maxlength : str.length
-    const characters = str.slice(0, length)
-    searchValue.value = characters
+    innerValue.value = str.slice(0, length)
   }
   else if (props.maxcharacter && typeof props.maxcharacter === 'number' && props.maxcharacter > 0) {
     const str = String(value ?? '')
@@ -169,37 +201,41 @@ function handleInput(e) {
       }
       len += currentStringLength
     }
-
-    searchValue.value = characters
+    innerValue.value = characters
   }
   else {
-    searchValue.value = value
+    innerValue.value = value
   }
-  emits('change', { value: searchValue.value })
+  emits('change', innerValue.value, e)
 }
 
 function handleFocus(e) {
   focused.value = true
-  emits('focus', { value: searchValue.value, e })
+  emits('focus', { value: innerValue.value, e })
 }
 
 function handleBlur(e) {
-  emits('blur', { value: searchValue.value, e })
+  focused.value = false
+  holdKeyboard.value = props.holdKeyboard
+  emits('blur', { value: innerValue.value, e })
 }
 
 function handleClear(e) {
-  searchValue.value = ''
+  innerValue.value = ''
   focused.value = true
+  holdKeyboard.value = true // 点击清除按钮时，保持键盘不收起
   emits('clear', { e })
+  emits('change', innerValue.value, e)
 }
 
 function handleConfirm(e) {
-  emits('submit', { value: searchValue.value, e })
+  emits('submit', { value: innerValue.value, e })
 }
 
 function handleCompositionend(e) {
-  // inputValueChangeHandle(e)
+  return handleInput(e)
 }
+
 function handleActionClick(e) {
   // eslint-disable-next-line vue/custom-event-name-casing
   emits('action-click', { e })
@@ -208,8 +244,8 @@ function handleActionClick(e) {
 function handleSearch(e) {
   // 如果按的是 enter 键, 13是 enter
   if (e.keyCode === 13) {
-    preventDefault(e, false)
-    emits('submit', { value: searchValue.value, e })
+    e.preventDefault(e, false)
+    emits('submit', { value: innerValue.value, e })
   }
 }
 </script>
@@ -238,17 +274,17 @@ function handleSearch(e) {
       <input
         :type="props.type" name="input" :maxlength="props.maxlength" :maxcharacter="props.maxcharacter" :disabled="props.disabled"
         class="l-input__keyword l-class-input pl-10rpx inline-block lh-48rpx flex-1 min-h-48rpx font-size-[--l-search-font-size,theme(font-size-m)] color-[--l-search-text-color,theme(font-gray-1)]"
-        :focus="props.focus" :value="searchValue" :confirm-type="props.confirmType" :confirm-hold="props.confirmHold"
+        :focus="focused" :value="innerValue" :confirm-type="props.confirmType" :confirm-hold="props.confirmHold"
         :cursor="props.cursor" :adjust-position="props.adjustPosition" :always-embed="props.alwaysEmbed"
-        :selection-start="props.selectionStart" :selection-end="props.selectionEnd" :hold-keyboard="props.holdKeyboard"
+        :selection-start="props.selectionStart" :selection-end="props.selectionEnd" :hold-keyboard="holdKeyboard"
         :cursor-spacing="props.cursorSpacing" :placeholder="props.placeholder"
         :placeholder-style="props.placeholderStyle"
-        :placeholder-class="[props.placeholderClass, 'l-search__placeholder color-[--l-search-placeholder-color,theme(font-gray-3)]', props.center ? 'l-search__placeholder--center text-center' : 'l-search__placeholder--normal'].join(' ')"
+        :placeholder-class="[props.placeholderClass, 'l-search__placeholder', props.center ? 'l-search__placeholder--center' : 'l-search__placeholder--normal'].join(' ')"
         @keypress="handleSearch" @input="handleInput" @focus="handleFocus" @blur="handleBlur" @confirm="handleConfirm"
         @compositionend="handleCompositionend"
       >
       <view
-        v-if="searchValue && props.clearable"
+        v-if="innerValue && props.clearable"
         class="l-search__clear l-class-clear ml-10px relative after:(block content-empty absolute bottom-0 left-0 right-0 top-0 scale-150) color-[--l-search-clear-icon-color,theme(font-gray-3)]"
         aria-role="button" aria-label="清除" @click="handleClear"
       >
@@ -256,7 +292,7 @@ function handleSearch(e) {
       </view>
     </view>
     <view
-      v-if="props.action && searchValue"
+      v-if="props.action && innerValue"
       class="l-search__search-action l-class-action ml-30rpx font-size-[--l-search-font-size,theme(font-size-m)] color-[--l-search-action-color,theme(brand-color)]"
       aria-role="button" @click="handleActionClick"
     >
@@ -265,3 +301,12 @@ function handleSearch(e) {
     <slot v-else name="action" />
   </view>
 </template>
+
+<style>
+.l-search__placeholder.input-placeholder {
+  @apply color-[--l-search-placeholder-color,theme(font-gray-3)]
+}
+.l-search__placeholder.l-search__placeholder--center {
+  @apply text-center
+}
+</style>

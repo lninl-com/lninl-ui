@@ -24,14 +24,14 @@ const value = ref('adsfd')
 </script>
 
 <template>
-  <div class="bg-[--bg-color-demo,#fff] !block">
+  <p class="dp bg-[--bg-color-demo,#fff] !block">
     <l-search placeholder="最大输入10个字符" :maxlength="10" />
-  </div>
-  <div class="bg-[--bg-color-demo,#fff] !block">
+  </p>
+  <p class="dp bg-[--bg-color-demo,#fff] !block">
     <l-search placeholder="最大输入10个字符，汉字算两个" :maxcharacter="10" />
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

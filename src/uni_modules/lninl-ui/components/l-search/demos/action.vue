@@ -12,11 +12,11 @@ const value = ref('')
 </script>
 
 <template>
-  <div class="bg-[--bg-color-demo,#fff] !block">
+  <p class="dp bg-[--bg-color-demo,#fff] !block">
     <l-search placeholder="搜索预设文案" :center="true" :focus="true" action="取消" @change="onChange" @action-click="onActionClick" />
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

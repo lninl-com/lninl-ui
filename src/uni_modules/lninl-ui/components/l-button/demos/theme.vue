@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <p class="dp">
     <l-button size="large">
       填充按钮
     </l-button>
@@ -9,9 +9,8 @@
     <l-button size="large" variant="text">
       文字按钮
     </l-button>
-  </div>
-
-  <div>
+  </p>
+  <p class="dp">
     <l-button size="large" theme="primary">
       填充按钮
     </l-button>
@@ -21,9 +20,9 @@
     <l-button size="large" theme="primary" variant="text">
       文字按钮
     </l-button>
-  </div>
+  </p>
 
-  <div>
+  <p class="dp">
     <l-button size="large" theme="danger">
       填充按钮
     </l-button>
@@ -33,9 +32,9 @@
     <l-button size="large" theme="danger" variant="text">
       文字按钮
     </l-button>
-  </div>
+  </p>
 
-  <div>
+  <p class="dp">
     <l-button size="large" theme="light">
       填充按钮
     </l-button>
@@ -45,9 +44,9 @@
     <l-button size="large" theme="light" variant="text">
       文字按钮
     </l-button>
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

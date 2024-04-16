@@ -23,6 +23,16 @@ const props = defineProps({
     type: String,
     default: undefined,
   },
+  /** 样式 */
+  style: {
+    type: Object,
+    default: () => { return {} },
+  },
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => { return {} },
+  },
 })
 const emits = defineEmits(['click'])
 const isImage = computed(() => {

@@ -1,39 +1,33 @@
 
-h1 {
+h1,.dh1 {
   font-size: 48rpx;
   font-weight: 700;
   line-height: 64rpx;
-  margin: 48rpx 32rpx 0 32rpx;
-  color: var(--l-font-gray-1, rgba(0, 0, 0, 0.9));
+  padding: 48rpx 32rpx 0 32rpx;
+  color: var(--l-font-gray-1, #222);
 }
 
-h2 {
-  margin: var(--l-spacer-4, 64rpx) 32rpx 0 32rpx;
+h2,.dh2 {
+  padding: var(--l-spacer-4, 64rpx) 32rpx 0 32rpx;
   font-weight: 700;
   font-size: 18px;
   line-height: 52rpx;
+  color: var(--l-font-gray-1, #222);
 }
 
-h3 {
-  margin: var(--l-spacer, 32rpx) 32rpx;
+h3,.dh3 {
+  padding: var(--l-spacer, 32rpx) 32rpx;
   font-size: var(--l-font-size-base, 14px);
   white-space: pre-line;
-  color: var(--l-font-gray-2, rgba(0, 0, 0, 0.6));
+  color: var(--l-font-gray-2, #666);
   line-height: 44rpx;
 }
 
-p {
+p,.dp {
   font-size: 14px;
-  color: var(--l-font-gray-2, rgba(0, 0, 0, 0.6));
-  margin: 32rpx;
+  color: var(--l-font-gray-2, #666);
+  padding: 32rpx;
   line-height: 22px;
-}
-
-div {
-  font-size: 14px;
-  color: var(--l-font-gray-2, rgba(0, 0, 0, 0.6));
-  margin: 32rpx;
-  line-height: 44rpx;
-  display:flex;
+  display: flex;
   align-items: center;
 }

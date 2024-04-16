@@ -62,6 +62,16 @@ const props = defineProps({
   onChange: {
     type: Function,
   },
+  /** 样式 */
+  style: {
+    type: Object,
+    default: () => { return {} },
+  },
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => { return {} },
+  },
 })
 /** 选中标签切换时触发 */
 const emits = defineEmits(['update:value', 'update:modelValue', 'change'])

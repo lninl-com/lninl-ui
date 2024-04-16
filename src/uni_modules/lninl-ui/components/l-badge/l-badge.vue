@@ -56,6 +56,16 @@ const props = defineProps({
       return ['medium', 'large'].includes(value)
     },
   },
+  /** 样式 */
+  style: {
+    type: Object,
+    default: () => { return {} },
+  },
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => { return {} },
+  },
 })
 // 是否展示角标
 const isShowBadge = computed(() => {

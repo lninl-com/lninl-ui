@@ -5,15 +5,15 @@ const loadingDuration = ref(5)
 </script>
 
 <template>
-  <div>
+  <p class="dp">
     <l-loading :duration="(1 / loadingDuration) * 3000" text="加载中..." />
-  </div>
+  </p>
 
-  <div>
+  <p class="dp">
     <l-slider v-model="loadingDuration" :min="0" :max="10" :label="false" />
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

@@ -1,12 +1,12 @@
 <script setup></script>
 
 <template>
-  <div>
+  <p class="dp">
     <l-loading class="mr-80rpx" text="加载中..." />
     <l-loading class="mr-80rpx" theme="spinner" text="加载中..." />
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

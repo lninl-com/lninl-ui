@@ -5,7 +5,7 @@
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/lninl-com/lninl-ui)](https://github.com/lninl-com/lninl-ui/issues)
 [![GitHub License](https://img.shields.io/github/license/lninl-com/lninl-ui)](https://github.com/lninl-com/lninl-ui/blob/main/LICENSE)
 
-一个基于 [Vue 3](https://cn.vuejs.org/guide/introduction) & [UnoCSS](https://unocss.dev/guide/)，兼容 [TDesign](https://tdesign.tencent.com/mobile-vue/getting-started) 的 [uni-app](https://uniapp.dcloud.net.cn/) UI开发组件。
+[lninl-ui](https://github.com/lninl-com/lninl-ui)是一个基于 [Vue 3](https://cn.vuejs.org/guide/introduction) & [UnoCSS](https://unocss.dev/guide/)，兼容 [TDesign](https://tdesign.tencent.com/mobile-vue/getting-started) 的 [uni-app](https://uniapp.dcloud.net.cn/) UI开发组件。
 
 ## 🪄 特性
 
@@ -24,21 +24,19 @@
 
 ### 安装
 
-```bash
+```bash copy
+# 安装 pnpm 和 @vue/cli
+npm install -g @vue/cli pnpm
+
 # 创建项目
-npm install -g @vue/cli
-npx degit dcloudio/uni-preset-vue#vite my-vue3-project
+pnpx degit dcloudio/uni-preset-vue#vite my-vue3-project
 cd my-vue3-project
 
 # 安装 lninl-ui UI开发组件
 pnpm i lninl-ui
-# 或
-npm i lninl-ui
-# 或
-yarn add lninl-ui
 
 # 更新uniapp依赖
-npx @dcloudio/uvm@latest
+pnpx @dcloudio/uvm@latest
 ```
 
 ### 配置
@@ -101,11 +99,11 @@ export default defineConfig({
 - [x] Loading 加载 - 用于表示页面或操作的加载状态，给予用户反馈的同时减缓等待的焦虑感，由一个或一组反馈动效组成。
 - [x] Button 按钮 - 按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
 - [x] Search 搜索框 - 用于用户输入搜索信息，并进行页面内容搜索。
+- [x] Input 输入框 - 用于文本信息输入。
 
 进行中的组件：
 
 - [ ] Form 表单 - 按钮用于开启一个闭环的操作任务，如“删除”对象、“购买”商品等。
-- [ ] Input 输入框 - 用于文本信息输入。
 - [ ] Textarea 多行文本框 - 用于多行文本信息输入。
 - [ ] Upload 上传 - 用于相册读取或拉起拍照的图片上传功能。
 - [ ] Radio 单选框 - 用于在预设的一组选项中执行单项选择，并呈现选择结果。

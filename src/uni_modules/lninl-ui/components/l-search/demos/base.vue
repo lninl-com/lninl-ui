@@ -20,24 +20,23 @@ function onSubmit() {
 function onActionClick() {
   console.log('action-click')
 }
-const value = ref('adsfd')
+const value = ref('')
 </script>
 
 <template>
-  <div class="bg-[--bg-color-demo,#fff] !block">
+  <p class="dp bg-[--bg-color-demo,#fff] !block">
     <l-search
       v-model="value"
       placeholder="请输入关键字"
-      @change="onChange"
       @blur="onBlur"
       @clear="onClear"
       @focus="onFocus"
       @submit="onSubmit"
       @action-click="onActionClick"
     />
-  </div>
+  </p>
 </template>
 
 <style scoped>
-@import "../../lninl-ui/demo.css"
+@import "../../lninl-ui/demo.css";
 </style>

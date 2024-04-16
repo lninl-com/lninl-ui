@@ -48,6 +48,16 @@ const props = defineProps({
     type: String,
     default: 'circular',
   },
+  /** 样式 */
+  style: {
+    type: Object,
+    default: () => { return {} },
+  },
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => { return {} },
+  },
 })
 
 const show = ref(true)

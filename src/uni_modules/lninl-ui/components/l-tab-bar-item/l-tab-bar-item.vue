@@ -18,6 +18,16 @@ const props = defineProps({
   value: {
     type: [String, Number],
   },
+  /** 样式 */
+  style: {
+    type: Object,
+    default: () => { return {} },
+  },
+  /** 自定义样式 */
+  customStyle: {
+    type: Object,
+    default: () => { return {} },
+  },
 })
 
 let split = ref()
