@@ -114,10 +114,14 @@ const badgeValue = computed(() => {
 
   return count > props.maxCount ? `${props.maxCount}+` : count
 })
+const computedStyle = computed(() => {
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
+})
 </script>
 
 <template>
   <view
+    :style="computedStyle"
     class="class l-class l-badge l-badge inline-block relative v-top"
     :class="{
       'l-badge__ribbon-outer absolute top-0 right-0': props.shape === 'ribbon',

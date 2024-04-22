@@ -1,5 +1,5 @@
 <script setup>
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 // Props 定义
 const props = defineProps({
@@ -78,18 +78,19 @@ watch(
     immediate: true,
   },
 )
+const computedStyle = computed(() => {
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle};${!props.text ? `width: ${props.size};height: ${props.size};` : ''}${props.inheritColor ? 'color: inherit;' : ''}`
+})
 </script>
 
 <template>
   <view
+    :style="computedStyle"
     class="l-loading font-size-[--l-loading-size,20px] inline-flex justify-center items-center color-[--l-loading-color,theme(brand-color)]"
     :class="[
       props.layout === 'vertical' ? 'flex-col' : '',
       props.layout === 'horizontal' ? 'flex-row v-top' : '',
       show ? '' : 'hidden',
-    ]" :style="[
-      !props.text ? { width: props.size, height: props.size } : '',
-      props.inheritColor ? { color: 'inherit' } : '',
     ]"
   >
     <!-- Indicator -->

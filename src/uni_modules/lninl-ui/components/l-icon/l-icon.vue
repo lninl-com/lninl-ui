@@ -35,11 +35,14 @@ const props = defineProps({
   },
 })
 const emits = defineEmits(['click'])
-const isImage = computed(() => {
-  return props.name && props.name.includes('/')
-})
 const sizeWithUnit = computed(() => {
   return /^\d+(\.\d+)?$/.test(String(props.size)) ? `${props.size}px` : props.size
+})
+const computedStyle = computed(() => {
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle};width:${sizeWithUnit.value};height:${sizeWithUnit.value};font-size:${sizeWithUnit.value};color:${props.color}`
+})
+const isImage = computed(() => {
+  return props.name && props.name.includes('/')
 })
 function click(e) {
   emits('click', e.detail)
@@ -48,8 +51,8 @@ function click(e) {
 
 <template>
   <view
+    :style="computedStyle"
     class="class t-class t"
-    :style="{ width: sizeWithUnit, height: sizeWithUnit, fontSize: sizeWithUnit, color: props.color }"
     aria-hidden="ariaHidden"
     aria-label="ariaLabel"
     aria-role="ariaRole"

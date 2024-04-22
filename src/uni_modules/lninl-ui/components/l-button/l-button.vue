@@ -203,9 +203,8 @@ function touchend() {
 }
 
 const computedStyle = computed(() => {
-  return [props.style, props.customStyle].filter(Boolean).join(' ')
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
 })
-
 const isDisabledOrLoading = computed(() => {
   return props.disabled || props.loading
 })

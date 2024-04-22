@@ -2,7 +2,7 @@
   "id": "lninl-ui",
   "name": "lninl-ui",
   "displayName": "lninl-ui",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "一个基于 Vue 3 & UnoCSS，兼容 TDesign 的 uni-app UI开发组件",
   "author": "lninl-ui",
   "license": "MIT",

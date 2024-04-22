@@ -1,5 +1,5 @@
 <script setup>
-import { getCurrentInstance, onMounted, provide, ref, toRefs, useSlots, watch } from 'vue'
+import { computed, getCurrentInstance, onMounted, provide, ref, toRefs, useSlots, watch } from 'vue'
 
 /**
  * TabBar 标签栏
@@ -86,7 +86,9 @@ function updateChild(currentValue) {
   activeValue.value = currentValue
 }
 updateChild(props.value)
-
+const computedStyle = computed(() => {
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
+})
 // #ifndef MP-TOUTIAO || MP-LARK
 provide('tab-bar', {
   ...toRefs(props),
@@ -134,6 +136,7 @@ onMounted(() => {
 
 <template>
   <view
+    :style="computedStyle"
     class="class l-class l-tab-bar fz-16px flex flex-nowrap items-center box-border bg-[--l-tab-bar-bg-color,theme(bg-color-container)] b-t-color-[--l-tab-bar-border-color,theme(border-color)] shadow-[--l-tab-bar-round-shadow,theme(shadow-3)]"
     :class="{
       'before:(z-1) before:(absolute box-border content-empty pointer-events-none) before:(scale-y-50 right-0 left-0 top-0 border-t-1px border-t-solid b-t-color-[--l-tab-bar-border-color,theme(border-color)])':

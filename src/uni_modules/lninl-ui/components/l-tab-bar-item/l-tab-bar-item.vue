@@ -141,10 +141,14 @@ function selectChild(childName) {
 
   isSpread.value = false
 }
+const computedStyle = computed(() => {
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
+})
 </script>
 
 <template>
   <view
+    :style="computedStyle"
     class="class l-class l-tab-bar-item px-24rpx py-0 mx-0 my-16rpx flex-1 relative h-[--l-tab-bar-height,80rpx] select-none box-border bg-[--l-tab-bar-bg-color,theme(bg-color-container)]" :class="{
       'l-tab-bar-item--split before:(top-0 bottom-0 left-0 b-l-1px b-l-solid b-l-color-[--l-tab-bar-border-color,theme(border-color)] scale-x-50 absolute box-border content-empty pointer-events-none) before:(top-16rpx bottom-16rpx)':
         split,
