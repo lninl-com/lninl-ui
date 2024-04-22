@@ -248,7 +248,7 @@ const focused = ref(props.focus || props.autoFocus)
 const holdKeyboard = ref(props.holdKeyboard)
 
 const computedStyle = computed(() => {
-  return [props.style, props.customStyle].filter(Boolean).join(' ')
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
 })
 
 function handleClear(e) {
@@ -311,7 +311,7 @@ function handleInput(e) {
       }
       len += currentStringLength
     }
-    innerValue.value = characters
+    innerValue.value = characters || str
   }
   else {
     innerValue.value = value

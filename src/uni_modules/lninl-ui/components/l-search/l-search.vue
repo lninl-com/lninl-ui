@@ -158,7 +158,7 @@ const props = defineProps({
 
 const emits = defineEmits(['update:value', 'update:modelValue', 'action-click', 'blur', 'change', 'clear', 'submit', 'focus'])
 const computedStyle = computed(() => {
-  return [props.style, props.customStyle].filter(item => item != null && item !== '').join(' ')
+  return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
 })
 const innerValue = ref(props.value || props.modelValue || props.defaultValue)
 watch(
@@ -201,7 +201,7 @@ function handleInput(e) {
       }
       len += currentStringLength
     }
-    innerValue.value = characters
+    innerValue.value = characters || str
   }
   else {
     innerValue.value = value
@@ -251,7 +251,7 @@ function handleSearch(e) {
 </script>
 
 <template>
-  <view :style="computedStyle" class="class l-search l-class flex justify-between items-center">
+  <view :style="computedStyle" class="class l-class l-search flex justify-between items-center">
     <view
       class="l-search__input-box l-class-input-container p-[--l-search-padding,16rpx_24rpx] border-2rpx border-solid flex flex-1 h-[--l-search-height,80rpx] items-center box-border bg-[--l-search-bg-color,theme(bg-color-secondarycontainer)] border-[--l-search-bg-color,theme(bg-color-secondarycontainer)]"
       :class="[
