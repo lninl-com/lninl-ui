@@ -343,7 +343,7 @@ function handleConfirm(e) {
         <slot name="prefix-icon" />
         <l-icon
           v-if="props.prefixIcon"
-          t-class="l-class-prefix-icon"
+          l-class="l-class-prefix-icon"
           :aria-hidden="true"
           :name="typeof props.prefixIcon === 'string' ? props.prefixIcon : props.prefixIcon.name"
         />
@@ -437,7 +437,7 @@ function handleConfirm(e) {
         >
           <l-icon
             v-if="props.clearable"
-            t-class="l-class-clearable"
+            l-class="l-class-clearable"
             aria-role="button"
             aria-label="清除"
             :name="typeof props.clearable === 'boolean' ? 'close-circle-filled' : props.clearable.name"
@@ -453,7 +453,7 @@ function handleConfirm(e) {
           <slot name="suffix-icon" />
           <l-icon
             v-if="props.suffixIcon"
-            t-class="l-class-suffix-icon"
+            l-class="l-class-suffix-icon"
             aria-role="button"
             :name="typeof props.suffixIcon === 'string' ? props.suffixIcon : props.suffixIcon.name"
           />

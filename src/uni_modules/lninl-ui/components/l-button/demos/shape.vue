@@ -9,7 +9,7 @@
     </l-button>
     <l-button theme="primary" size="large" icon="search" shape="circle" aria-label="搜索" />
   </p>
-  <l-button theme="primary" size="large" block t-class="external-class">
+  <l-button theme="primary" size="large" block l-class="external-class">
     填充按钮
   </l-button>
 </template>
