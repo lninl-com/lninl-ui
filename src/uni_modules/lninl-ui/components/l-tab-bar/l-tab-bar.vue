@@ -137,17 +137,16 @@ onMounted(() => {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-tab-bar fz-16px flex flex-nowrap items-center box-border bg-[--l-tab-bar-bg-color,theme(bg-color-container)] b-t-color-[--l-tab-bar-border-color,theme(border-color)] shadow-[--l-tab-bar-round-shadow,theme(shadow-3)]"
+    class="class l-class l-tab-bar fz-16px flex flex-nowrap items-center box-border bg-[--l-tab-bar-bg-color,theme(bg-color-container)]"
     :class="{
-      'before:(z-1) before:(absolute box-border content-empty pointer-events-none) before:(scale-y-50 right-0 left-0 top-0 border-t-1px border-t-solid b-t-color-[--l-tab-bar-border-color,theme(border-color)])':
+      'before:(z-1) before:(absolute box-border content-empty pointer-events-none) before:(scale-y-50 origin-[0_0] right-0 left-0 top-0 border-t-1px border-t-solid b-t-color-[--l-tab-bar-border-color,theme(border-color)])':
         props.shape === 'normal' && props.bordered,
-      'fixed left-0 bottom-0 right-0': props.fixed,
+      'fixed left-0 right-0': props.fixed,
       'relative': !props.fixed,
+      'bottom-0 ': !(props.shape === 'round' && props.fixed && props.safeAreaInsetBottom),
+      'bottom-[constant(safe-area-inset-bottom))] bottom-[env(safe-area-inset-bottom)] ': props.shape === 'round' && props.fixed && props.safeAreaInsetBottom,
+      'pb-[constant(safe-area-inset-bottom)] pb-[env(safe-area-inset-bottom)]': props.shape === 'normal' && props.safeAreaInsetBottom,
       'ml-32rpx mr-32rpx rd-999px shadow-[--l-tab-bar-round-shadow,theme(shadow-3)]': props.shape === 'round',
-      'mb-[calc(constant(safe-area-inset-bottom)-16rpx)] mb-[calc(env(safe-area-inset-bottom)-16rpx)] ':
-        props.shape === 'round' && props.fixed && props.safeAreaInsetBottom,
-      'pb-[calc(constant(safe-area-inset-bottom)-16rpx)] pb-[calc(env(safe-area-inset-bottom)-16rpx)]':
-        props.shape === 'normal' && props.safeAreaInsetBottom,
     }" role="tablist"
   >
     <slot />
