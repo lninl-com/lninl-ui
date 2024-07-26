@@ -25,8 +25,8 @@ const props = defineProps({
   },
   /** 自定义样式 */
   customStyle: {
-    type: Object,
-    default: () => { return {} },
+    type: [Object, String],
+    default: () => { return '' },
   },
 })
 
@@ -149,21 +149,25 @@ const computedStyle = computed(() => {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-tab-bar-item px-24rpx py-0 mx-0 my-16rpx flex-1 relative h-[--l-tab-bar-height,80rpx] select-none box-border bg-[--l-tab-bar-bg-color,theme(bg-color-container)]" :class="{
+    class="class l-class l-tab-bar-item px-24rpx py-0 mx-0 my-16rpx flex-1 relative h-[--l-tab-bar-height,80rpx] select-none box-border " :class="{
       'l-tab-bar-item--split before:(top-0 bottom-0 left-0 b-l-1px b-l-solid b-l-color-[--l-tab-bar-border-color,theme(border-color)] scale-x-50 absolute box-border content-empty pointer-events-none) before:(top-16rpx bottom-16rpx)':
         split,
       'l-tab-bar-item--text-only font-size-32rpx': !props.icon,
       'l-tab-bar-item--crowded px-16rpx py-0': crowded,
-      'l-tab-bar-item--${shape} b-rd-99px': shape === 'round',
+      'l-tab-bar-item--round b-rd-99px': shape === 'round',
+      'l-tab-bar-item--round bg-[--l-tab-bar-bg-color,theme(bg-color-container)]': shape !== 'round', // todo 跟原版有区别
     }"
   >
     <view
-      class="l-tab-bar-item__content b-rd-16rpx flex flex-col h-100% w-100% justify-center items-center" :class="{
+      class="l-tab-bar-item__content flex flex-col h-100% w-100% justify-center items-center" :class="{
         'l-tab-bar-item__content--tag b-rd-99px': theme === 'tag',
+        'l-tab-bar-item__content b-rd-16rpx ': theme !== 'tag',
         'l-tab-bar-item__content--tag bg-[--l-tab-bar-active-bg,theme(brand-color-light)]': theme === 'tag' && isChecked,
         'l-tab-bar-item__content color-[--l-tab-bar-color,theme(text-color-primary)]': !isChecked,
         'l-tab-bar-item__content--checked fw-600 color-[--l-tab-bar-active-color,theme(brand-color)]': isChecked,
       }"
+      hover-class="l-tab-bar__content--active"
+      :hover-stay-time="200"
       :aria-selected="(!hasChildren || !isSpread) && isChecked"
       :aria-expanded="hasChildren && isSpread"
       :role="hasChildren ? 'button' : 'tab'"
@@ -220,5 +224,8 @@ const computedStyle = computed(() => {
 <style>
 :host {
   flex: 1;
+}
+.l-tab-bar__content--active{
+  /* background-color: @tab-bar-hover-bg-color; */
 }
 </style>

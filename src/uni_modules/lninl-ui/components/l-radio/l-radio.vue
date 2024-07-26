@@ -117,8 +117,8 @@ const props = defineProps({
   },
   /** 自定义样式 */
   customStyle: {
-    type: String,
-    default: '',
+    type: [Object, String],
+    default: () => { return '' },
   },
 })
 const emits = defineEmits(['update:checked', 'update:modelValue', 'click', 'enter', 'focus', 'blur', 'change', 'clear'])
@@ -201,7 +201,8 @@ function radioOrgChange(e) {
 </script>
 
 <template>
-  <view :style="computedStyle"
+  <view
+    :style="computedStyle"
     class="class l-class l-radio font-size-[--l-radio-font-size,32rpx] relative v-middle bg-[--l-radio-bg-color,theme(bg-color-container)] focus:(outline-0)"
     :class="{
       'l-radio--left': placement === 'left',
@@ -209,7 +210,8 @@ function radioOrgChange(e) {
       'l-radio--block flex p-[--l-radio-vertical-padding,32rpx]': block,
       'inline-flex': !block,
     }" :disabled="disabled" aria-role="radio" :aria-checked="checked" :aria-label="props.label"
-    :aria-disabled="disabled" :tabindex="props.tabindex" @tap="radioContentChange">
+    :aria-disabled="disabled" :tabindex="props.tabindex" @tap="radioContentChange"
+  >
     <!-- <input type="radio" class="l-radio__original" v-bind="inputProps"> -->
     <view
       class="l-radio__icon l-class-icon mt-[calc((var(--l-radio-label-line-height,48rpx)-var(--l-radio-icon-size,48rpx))/2)] font-size-[--l-radio-icon-size,48rpx] relative h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] overflow-hidden empty:hidden"
@@ -220,22 +222,33 @@ function radioOrgChange(e) {
           'l-radio__icon--disabled cursor-not-allowed c-[--l-radio-icon-disabled-color,theme(brand-color-disabled)]': disabled,
         },
         checked ? 'l-radio__icon--checked c-[--l-radio-icon-checked-color,theme(brand-color)]' : 'c-[--l-radio-icon-color,theme(component-border)]',
-      ]">
+      ]"
+    >
       <slot v-if="props.icon === 'slot'" name="icon" />
-      <view v-else-if="rootGroupProps.icon?.length === 2 || props.icon?.length === 2"
-        class="l-radio__image lh-[--l-radio-icon-size,48rpx]">
-        <image :src="icon" class="l-radio-icon__image h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] v-sub"
-          webp />
+      <view
+        v-else-if="rootGroupProps.icon?.length === 2 || props.icon?.length === 2"
+        class="l-radio__image lh-[--l-radio-icon-size,48rpx]"
+      >
+        <image
+          :src="icon" class="l-radio-icon__image h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] v-sub"
+          webp
+        />
       </view>
       <template v-else>
-        <l-icon v-if="checked && (icon === 'circle' || icon === 'line')"
-          :name="props.icon === 'circle' ? 'check-circle-filled' : 'check'" class="l-radio__icon-wrap" />
-        <view v-if="checked && icon === 'dot'"
+        <l-icon
+          v-if="checked && (icon === 'circle' || icon === 'line')"
+          :name="props.icon === 'circle' ? 'check-circle-filled' : 'check'" class="l-radio__icon-wrap"
+        />
+        <view
+          v-if="checked && icon === 'dot'"
           class="l-radio__icon-dot b-3px rd-[50%] b-solid flex absolute h-84rpx w-84rpx justify-center items-center left-[50%] top-[50%] box-border translate-[-50%,-50%] scale-50 after:(block rd-[50%] content-empty h-48rpx w-48rpx bg-[--l-radio-icon-checked-color,theme(brand-color)]) b-[--l-radio-icon-checked-color,theme(brand-color)]"
-          :class="{ 'l-radio__icon-dot--disabled b-[--l-radio-icon-disabled-color,theme(brand-color-disabled)] after:(bg-[--l-radio-icon-disabled-color,theme(brand-color-disabled)])': disabled }" />
-        <view v-if="!checked && (icon === 'circle' || icon === 'dot')"
+          :class="{ 'l-radio__icon-dot--disabled b-[--l-radio-icon-disabled-color,theme(brand-color-disabled)] after:(bg-[--l-radio-icon-disabled-color,theme(brand-color-disabled)])': disabled }"
+        />
+        <view
+          v-if="!checked && (icon === 'circle' || icon === 'dot')"
           class="l-radio__icon-circle h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] box-border after:(b-3px rd-[50%] b-solid content-empty absolute h-[calc(200%-6rpx)] w-[calc(200%-6rpx)] left-[50%] top-[50%] box-border translate-[-50%,-50%] scale-50 b-[--l-radio-icon-color,theme(component-border)])"
-          :class="{ 'l-radio__icon-circle--disabled after:bg-[--l-radio-icon-disabled-bg-color,theme(bg-color-component-disabled)]': disabled }" />
+          :class="{ 'l-radio__icon-circle--disabled after:bg-[--l-radio-icon-disabled-bg-color,theme(bg-color-component-disabled)]': disabled }"
+        />
         <!-- line && unchecked 为空 需要展位元素 -->
         <view v-if="!checked && icon === 'line'" class="placeholder" />
       </template>
@@ -248,29 +261,33 @@ function radioOrgChange(e) {
           'l-radio__title--checked c-[--l-radio-label-checked-color,theme(font-gray-1)]': checked,
           'c-[--l-radio-label-color,theme(font-gray-1)] ': !checked,
           'l-radio__title--disabled cursor-not-allowed c-[--l-radio-label-disabled-color,theme(font-gray-4)]': disabled,
-        }" :style="`-webkit-line-clamp:${props.maxLabelRow}`">
+        }" :style="`-webkit-line-clamp:${props.maxLabelRow}`"
+      >
         {{ props.label }}
         <slot />
         <slot name="label" />
       </view>
 
       <view
-        class="l-radio__description l-class-content display-[-webkit-box] font-size-[--l-radio-content-font-size,28rpx] lh-[--l-radio-content-line-height,44rpx] overflow-hidden peer-invalid:mt-8rpx empty:hidden"
+        class="l-radio__description l-class-content display-[-webkit-box] font-size-[--l-radio-content-font-size,28rpx] lh-[--l-radio-content-line-height,44rpx] overflow-hidden invalid:mt-8rpx empty:hidden"
         :class="{
           'l-radio__description--checked c-[--l-radio-content-checked-color,theme(font-gray-2)]': checked && !disabled,
           'c-[--l-radio-content-color,theme(font-gray-2)] ': !checked,
           'l-radio__description--disabled cursor-not-allowed c-[--l-radio-content-disabled-color,theme(font-gray-4)]': disabled,
-        }" :style="`-webkit-box-orient:vertical;-webkit-line-clamp:${props.maxLabelRow}`">
+        }" :style="`-webkit-box-orient:vertical;-webkit-line-clamp:${props.maxLabelRow}`"
+      >
         {{ props.content }}
         <slot name="content" />
       </view>
     </view>
 
-    <view v-if="!borderless"
+    <view
+      v-if="!borderless"
       class="l-radio__border l-class-border absolute h-1px bottom-0 left-96rpx right-0 scale-y-50 bg-[--l-radio-border-color,theme(component-stroke)]"
       :class="{
         'l-radio__border--left': placement === 'left',
         'l-radio__border--right left-32rpx': placement === 'right',
-      }" />
+      }"
+    />
   </view>
 </template>

@@ -5,7 +5,7 @@
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/lninl-com/lninl-ui)](https://github.com/lninl-com/lninl-ui/issues)
 [![GitHub License](https://img.shields.io/github/license/lninl-com/lninl-ui)](https://github.com/lninl-com/lninl-ui/blob/main/LICENSE)
 
-[lninl-ui](https://github.com/lninl-com/lninl-ui)是一个基于 [Vue 3](https://cn.vuejs.org/guide/introduction) & [UnoCSS](https://unocss.dev/guide/)，兼容 [TDesign](https://tdesign.tencent.com/mobile-vue/getting-started) 的 [uni-app](https://uniapp.dcloud.net.cn/) UI开发组件。
+[lninl-ui](https://github.com/lninl-com/lninl-ui)  (lninl 发音 /lɪŋiːnoʊ/) 是一个基于 [Vue 3](https://cn.vuejs.org/guide/introduction) & [UnoCSS](https://unocss.dev/guide/)，兼容 [TDesign](https://tdesign.tencent.com/mobile-vue/getting-started) 的 [uni-app](https://uniapp.dcloud.net.cn/) UI开发组件。
 
 ## 🪄 特性
 
@@ -100,6 +100,7 @@ export default defineConfig({
 - [x] Input 输入框 - 用于文本信息输入。
 - [x] Textarea 多行文本框 - 用于多行文本信息输入。
 - [x] Radio 单选框 - 用于在预设的一组选项中执行单项选择，并呈现选择结果。
+- [x] Cell 单元格 - 用于各个类别行的信息展示。
 
 进行中的组件：
 

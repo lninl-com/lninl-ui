@@ -179,8 +179,8 @@ const props = defineProps({
   },
   /** 自定义样式 */
   customStyle: {
-    type: Object,
-    default: () => { return {} },
+    type: [Object, String],
+    default: () => { return '' },
   },
 })
 
@@ -188,18 +188,22 @@ const emits = defineEmits(['getuserinfo', 'contact', 'getphonenumber', 'error', 
 
 const hover = ref(false)
 function touchstart() {
+  // #ifdef WEB
   if (props.disabled)
     return
   setTimeout(() => {
     hover.value = true
   }, props.hoverStartTime)
+  // #endif
 }
 function touchend() {
+  // #ifdef WEB
   if (props.disabled)
     return
   setTimeout(() => {
     hover.value = false
   }, props.hoverStayTime)
+  // #endif
 }
 
 const computedStyle = computed(() => {
@@ -256,6 +260,11 @@ function tap(e) {
   if (props.disabled || props.loading)
     return
   emits('tap', e)
+}
+function click(e) {
+  if (props.disabled || props.loading)
+    return
+  emits('click', e)
 }
 </script>
 
@@ -389,6 +398,7 @@ function tap(e) {
     :data-order-id="props.dataOrderId"
     :data-biz-line="props.dataBizLine"
     @tap="tap"
+    @click="click"
     @touchstart.passive="touchstart"
     @touchend.stop="touchend"
     @getuserinfo="getUserInfo"

@@ -30,8 +30,8 @@ const props = defineProps({
   },
   /** 自定义样式 */
   customStyle: {
-    type: Object,
-    default: () => { return {} },
+    type: [Object, String],
+    default: () => { return '' },
   },
 })
 const emits = defineEmits(['click'])

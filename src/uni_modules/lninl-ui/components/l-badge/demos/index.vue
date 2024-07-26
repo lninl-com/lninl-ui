@@ -1,7 +1,7 @@
 <script setup>
 import baseDemo from './base.vue'
-import themeDemo from './theme.vue'
-import sizeDemo from './size.vue'
+import theme from './theme.vue'
+import size from './size.vue'
 </script>
 
 <template>
@@ -20,12 +20,12 @@ import sizeDemo from './size.vue'
   <h2 class="dh2">
     02 组件样式
   </h2>
-  <themeDemo />
+  <theme />
 
   <h2 class="dh2">
     03 组件尺寸
   </h2>
-  <sizeDemo />
+  <size />
 </template>
 
 <style scoped>

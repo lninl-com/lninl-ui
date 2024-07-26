@@ -1,5 +1,5 @@
 <script setup>
-import { computed, getCurrentInstance, onMounted, provide, ref, toRefs, useSlots, watch } from 'vue'
+import { computed, getCurrentInstance, onMounted, provide, ref, toRefs, useSlots, watch, watchEffect } from 'vue'
 
 /**
  * TabBar 标签栏
@@ -69,23 +69,39 @@ const props = defineProps({
   },
   /** 自定义样式 */
   customStyle: {
-    type: Object,
-    default: () => { return {} },
+    type: [Object, String],
+    default: () => { return '' },
   },
 })
 /** 选中标签切换时触发 */
 const emits = defineEmits(['update:value', 'update:modelValue', 'change'])
 const defaultIndex = ref(-1)
 const itemCount = ref(0)
-const activeValue = ref()
-watch(activeValue, (newValue, _) => {
-  if (newValue)
-    emits('change', newValue)
+
+const activeValue = ref(props.value || props.modelValue || props.defaultValue)
+watch(
+  () => activeValue.value,
+  (value) => {
+    if (props.value !== undefined) {
+      emits('update:value', value)
+    }
+    if (props.modelValue !== undefined) {
+      emits('update:modelValue', value)
+    }
+    emits('change', value)
+  },
+)
+watchEffect(() => {
+  if (props.value !== undefined)
+    activeValue.value = props.value
+  if (props.modelValue !== undefined)
+    activeValue.value = props.modelValue
 })
+
 function updateChild(currentValue) {
   activeValue.value = currentValue
 }
-updateChild(props.value)
+// updateChild(props.value)
 const computedStyle = computed(() => {
   return `${Object.keys(props.style).map(key => [key, props.style[key]].join(':')).join(';')};${props.customStyle}`
 })
@@ -111,7 +127,7 @@ onMounted(() => {
   // #endif
 
   let count = 0
-  // #ifdef H5
+  // #ifdef WEB
   useSlots()
     .default()
     .forEach((child) => {
@@ -123,7 +139,7 @@ onMounted(() => {
       }
     })
   // #endif
-  // #ifndef H5
+  // #ifndef WEB
   getCurrentInstance().ctx.$children.forEach((child) => {
     if (child.$.type.__name.includes('tab-bar-item'))
       count++

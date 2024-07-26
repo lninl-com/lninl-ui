@@ -72,7 +72,9 @@ export default defineConfig({
 
 [./uno.config.js](./uno.config.js)
 
-- 打开 pages.json, 添加 easycom 配置 (此步骤可忽略)
+- 打开 pages.json, 添加 easycom 配置
+
+如果是 是用`pnpm i lninl-ui`安装，需要配置
 
 ```json copy
 {
@@ -102,6 +104,7 @@ export default defineConfig({
 - [x] Input 输入框 - 用于文本信息输入。
 - [x] Textarea 多行文本框 - 用于多行文本信息输入。
 - [x] Radio 单选框 - 用于在预设的一组选项中执行单项选择，并呈现选择结果。
+- [x] Cell 单元格 - 用于各个类别行的信息展示。
 
 进行中的组件：
 
@@ -157,6 +160,14 @@ pnpm run dev:mp-weixin
 pnpm run dev:mp-toutiao
 pnpm run dev:app
 ...
+
+# 测试
+## 安装依赖
+pnpm exec playwright install
+## 启动web服务
+pnpm run dev:h5-test
+## 开始测试
+pnpm run test:h5
 
 # 打包
 pnpm run build:h5

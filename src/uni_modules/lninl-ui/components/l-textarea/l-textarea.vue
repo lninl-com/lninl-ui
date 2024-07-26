@@ -168,8 +168,8 @@ const props = defineProps({
   },
   /** 自定义样式 */
   customStyle: {
-    type: String,
-    default: '',
+    type: [Object, String],
+    default: () => { return '' },
   },
 })
 const emits = defineEmits(['update:value', 'update:modelValue', 'click-icon', 'click', 'enter', 'focus', 'blur', 'change', 'clear', 'keyboardheightchange', 'nicknamereview', 'linechange', 'line-change'])
