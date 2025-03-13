@@ -104,7 +104,7 @@ const computedStyle = computed(() => {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-cell px-[--l-cell-horizontal-padding,32rpx] py-[--l-cell-vertical-padding,32rpx] lh-[--l-cell-line-height,48rpx] flex relative h-[--l-cell-height,auto] w-[100%] overflow-hidden box-border bg-[--l-cell-bg-color,theme(bg-color-container)] after:(b-b-width-[--l-cell-border-width,1px] b-b-solid content-empty absolute pointer-events-none bottom-0 left-[--l-cell-border-left-space,var(--l-cell-horizontal-padding,32rpx)] left-0 right-[--l-cell-border-right-space,0] right-0 box-border scale-y-50 b-b-color-[--l-cell-border-color,theme(component-stroke)])"
+    class="class l-class l-cell relative box-border h-[--l-cell-height,auto] w-[100%] flex overflow-hidden px-[--l-cell-horizontal-padding,32rpx] py-[--l-cell-vertical-padding,32rpx] lh-[--l-cell-line-height,48rpx] after:(pointer-events-none absolute bottom-0 left-[--l-cell-border-left-space,var(--l-cell-horizontal-padding,32rpx)] left-0 right-[--l-cell-border-right-space,0] right-0 box-border scale-y-50 b-b-width-[--l-cell-border-width,1px] b-b-solid content-empty b-b-color-[--l-cell-border-color,theme(component-stroke)]) bg-[--l-cell-bg-color,theme(bg-color-container)]"
     :class="{
       'l-cell--borderless after:(hidden)': !props.bordered || isLastChild.value,
       'l-cell--middle items-center': props.align === 'middle',
@@ -129,7 +129,7 @@ const computedStyle = computed(() => {
     </view>
     <view class="l-cell__title l-class-center flex-[1_1_auto] empty:(hidden)">
       <view
-        class="l-cell__title-text l-class-title font-400 flex font-size-[--l-cell-title-font-size,theme(font-size-m)] color-[--l-cell-title-color,theme(font-gray-1)]"
+        class="l-class-title l-cell__title-text flex font-400 font-size-[--l-cell-title-font-size,theme(font-size-m)] color-[--l-cell-title-color,theme(font-gray-1)]"
       >
         <block v-if="props.title">
           {{ props.title }}
@@ -156,7 +156,7 @@ const computedStyle = computed(() => {
     </view>
 
     <view
-      class="l-cell__note l-class-note flex flex-[1_1_auto] justify-end items-center empty:(hidden) font-size-[--l-cell-note-font-size,theme(font-size-m)] color-[--l-cell-note-color,theme(font-gray-3)]"
+      class="l-cell__note l-class-note flex flex-[1_1_auto] items-center justify-end empty:(hidden) font-size-[--l-cell-note-font-size,theme(font-size-m)] color-[--l-cell-note-color,theme(font-gray-3)]"
     >
       <text v-if="props.note">
         {{ props.note }}

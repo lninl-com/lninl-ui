@@ -1,15 +1,15 @@
-import { createSSRApp } from 'vue'
 import { createPinia } from 'pinia'
 import { createPersistedState } from 'pinia-plugin-persistedstate'
+import { createSSRApp } from 'vue'
 
 import { createI18n } from 'vue-i18n'
 import App from './App'
-import en from './locale/en.json'
-import zhHans from './locale/zh-Hans.json'
-import zhHant from './locale/zh-Hant.json'
-
 import { config } from './custom/config'
 import mixin from './custom/mixin'
+import en from './locale/en.json'
+
+import zhHans from './locale/zh-Hans.json'
+import zhHant from './locale/zh-Hant.json'
 
 import 'virtual:uno.css'
 

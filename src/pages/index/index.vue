@@ -1,4 +1,4 @@
-<route type="page">
+<route type="home">
 {
   style: { navigationBarTitleText: '%index.title%' },
 }
@@ -7,8 +7,6 @@
 <script setup>
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { onLoad } from '@dcloudio/uni-app'
-import { http } from '@/custom/config'
 
 const { t } = useI18n()
 const selected = ref()

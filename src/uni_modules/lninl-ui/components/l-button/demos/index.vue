@@ -1,12 +1,12 @@
 <script setup>
 import baseDemo from './base.vue'
-import iconDemo from './icon.vue'
+import blockDemo from './block.vue'
 import ghostDemo from './ghost.vue'
 import groupDemo from './group.vue'
-import blockDemo from './block.vue'
-import statusDemo from './status.vue'
-import sizeDemo from './size.vue'
+import iconDemo from './icon.vue'
 import shapeDemo from './shape.vue'
+import sizeDemo from './size.vue'
+import statusDemo from './status.vue'
 import themeDemo from './theme.vue'
 </script>
 

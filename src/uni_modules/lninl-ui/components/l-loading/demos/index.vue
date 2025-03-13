@@ -1,10 +1,10 @@
 <script setup>
 import baseDemo from './base.vue'
 import horizDemo from './horiz.vue'
-import vertDemo from './vert.vue'
-import sizeDemo from './size.vue'
 import pureTextDemo from './pure-text.vue'
+import sizeDemo from './size.vue'
 import speedDemo from './speed.vue'
+import vertDemo from './vert.vue'
 </script>
 
 <template>

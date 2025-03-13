@@ -1,6 +1,6 @@
 <template>
-  <l-cell title="单行标题" hover arrow />
-  <l-cell title="单行标题" hover required arrow />
+  <l-cell title="单行标题" arrow hover />
+  <l-cell title="单行标题" hover arrow required />
   <l-cell title="单行标题" hover arrow aria-label="单行标题，有16条消息">
     <template #note>
       <l-badge :count="16" />

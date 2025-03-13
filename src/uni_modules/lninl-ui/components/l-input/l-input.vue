@@ -326,7 +326,7 @@ function handleConfirm(e) {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-input p-[--l-input-vertical-padding,32rpx] flex flex-1 bg-[--l-input-bg-color,theme(bg-color-container)]"
+    class="class l-class l-input flex flex-1 p-[--l-input-vertical-padding,32rpx] bg-[--l-input-bg-color,theme(bg-color-container)]"
     :class="{
       'l-input--layout-vertical flex-col items-start': props.layout === 'vertical',
       'l-input--layout-horizontal items-center': props.layout === 'horizontal',
@@ -366,9 +366,9 @@ function handleConfirm(e) {
       </view>
     </view>
 
-    <view class="l-input__wrap flex flex-1 shrink-1 flex-col flex-wrap w-[100%] justify-center">
+    <view class="l-input__wrap w-[100%] flex flex-1 shrink-1 flex-col flex-wrap justify-center">
       <view
-        class="l-input__content font-size-[--l-font-size-m,32rpx] lh-48rpx flex items-center"
+        class="l-input__content flex items-center font-size-[--l-font-size-m,32rpx] lh-48rpx"
         :class="{
           'l-input--default': props.status === 'default',
           'l-input--success': props.status === 'success',
@@ -378,7 +378,7 @@ function handleConfirm(e) {
       >
         <input
           ref="inputRef"
-          class="l-class__control l-class-input p-0 m-0 block bg-transparent border-0 font-size-inherit lh-inherit min-h-48rpx min-w-0 w-[100%] resize-none box-border c-[--l-input-default-text-color,theme(font-gray-1)]"
+          class="l-class__control l-class-input m-0 box-border block min-h-48rpx min-w-0 w-[100%] resize-none border-0 bg-transparent p-0 font-size-inherit lh-inherit c-[--l-input-default-text-color,theme(font-gray-1)]"
           :class="{
             'l-input--left text-left': props.align === 'left',
             'l-input--center text-center': props.align === 'center',
@@ -432,7 +432,7 @@ function handleConfirm(e) {
         -->
         <view
           v-if="props.clearable && (innerValue.length > 0 || props.clearTrigger === 'always')"
-          class="l-input__wrap--clearable-icon pl-[--l-spacer-1,24rpx] text-48rpx flex-[0_0_auto] empty:hidden c-[--l-input-suffix-icon-color,theme(font-gray-3)]"
+          class="l-input__wrap--clearable-icon flex-[0_0_auto] pl-[--l-spacer-1,24rpx] text-48rpx empty:hidden c-[--l-input-suffix-icon-color,theme(font-gray-3)]"
           @touchend.prevent="handleClear"
         >
           <l-icon
@@ -443,13 +443,13 @@ function handleConfirm(e) {
             :name="typeof props.clearable === 'boolean' ? 'close-circle-filled' : props.clearable.name"
           />
         </view>
-        <view class="l-input__wrap--suffix l-class-suffix pl-[--l-spacer-1,24rpx] font-size-[--l-font-size-m,32rpx] flex-[0_0_auto] empty:hidden c-[--l-input-suffix-text-color,theme(font-gray-1)]" @tap="handleSuffixClick">
+        <view class="l-input__wrap--suffix l-class-suffix flex-[0_0_auto] pl-[--l-spacer-1,24rpx] font-size-[--l-font-size-m,32rpx] empty:hidden c-[--l-input-suffix-text-color,theme(font-gray-1)]" @tap="handleSuffixClick">
           <text v-if="props.suffix">
             {{ props.suffix }}
           </text>
           <slot name="suffix" />
         </view>
-        <view class="l-input__wrap--suffix-icon pl-[--l-spacer-1,24rpx] font-size-48rpx flex-[0_0_auto] empty:hidden c-[--l-input-suffix-icon-color,theme(font-gray-3)]" @tap="handleSuffixIconClick">
+        <view class="l-input__wrap--suffix-icon flex-[0_0_auto] pl-[--l-spacer-1,24rpx] font-size-48rpx empty:hidden c-[--l-input-suffix-icon-color,theme(font-gray-3)]" @tap="handleSuffixIconClick">
           <slot name="suffix-icon" />
           <l-icon
             v-if="props.suffixIcon"

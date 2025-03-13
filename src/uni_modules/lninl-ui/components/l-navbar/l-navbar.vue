@@ -127,7 +127,7 @@ function handleRightClick(e) {
 <!-- todo fix right -->
 <template>
   <view
-    class="l-navbar class l-class" :class="{
+    class="class l-class l-navbar" :class="{
       'l-navbar--fixed': props.fixed,
       'l-navbar--relative': !props.fixed,
       'l-navbar--visible': props.visible,
@@ -138,17 +138,17 @@ function handleRightClick(e) {
   >
     <view
       v-if="props.fixed"
-      class="l-navbar__placeholder box-content pt-[--l-navbar-padding-top,0] relative h-[--l-navbar-height,96rpx] invisible"
+      class="l-navbar__placeholder invisible relative box-content h-[--l-navbar-height,96rpx] pt-[--l-navbar-padding-top,0]"
     />
     <view
-      class="l-navbar__content pr-[--l-navbar-right,190rpx] pt-[--l-navbar-padding-top,0] flex h-[--l-navbar-height,96rpx] w-[calc(100%-var(--l-navbar-right,190rpx))] items-center z-1 bg-[--l-navbar-bg-color,theme(bg-color-container)] color-[--l-navbar-color,theme(font-gray-1)]"
+      class="l-navbar__content z-1 h-[--l-navbar-height,96rpx] w-[calc(100%-var(--l-navbar-right,190rpx))] flex items-center pr-[--l-navbar-right,190rpx] pt-[--l-navbar-padding-top,0] bg-[--l-navbar-bg-color,theme(bg-color-container)] color-[--l-navbar-color,theme(font-gray-1)]"
       :class="{
         'fixed top-0 left-0 z-5001': props.fixed,
         'relative': !props.fixed,
       }"
     >
       <view
-        class="l-navbar__left l-class-left ml-[--l-spacer-1,24rpx] flex relative items-center box-border"
+        class="l-class-left l-navbar__left relative ml-[--l-spacer-1,24rpx] box-border flex items-center"
         @click="handleLeftClick"
       >
         <view v-if="props.leftArrow" class="l-navbar__btn" aria-role="button" aria-label="返回" @click="goBack">
@@ -156,25 +156,25 @@ function handleRightClick(e) {
         </view>
         <slot name="left" />
         <view
-          class="l-navbar__capsule l-class-capsule before:origin-0-0 flex h-[--l-navbar-capsule-height,64rpx] w-[--l-navbar-capsule-width,176rpx] items-center box-border empty:(hidden) before:(border-[2rpx_solid_var(--l-navbar-capsule-border-color,#e3e6ea)] border-rd-[calc(var(--l-navbar-capsule-border-radius,32rpx))*2] content-empty absolute h-[200%] w-[200%] left-0 top-0 z--1 box-border scale-50)"
+          class="l-navbar__capsule l-class-capsule before:origin-0-0 box-border h-[--l-navbar-capsule-height,64rpx] w-[--l-navbar-capsule-width,176rpx] flex items-center before:(absolute left-0 top-0 z--1 box-border h-[200%] w-[200%] scale-50 border-[2rpx_solid_var(--l-navbar-capsule-border-color,#e3e6ea)] border-rd-[calc(var(--l-navbar-capsule-border-radius,32rpx))*2] content-empty) empty:(hidden)"
         >
           <slot name="capsule" />
         </view>
       </view>
       <view
-        class="l-navbar__center l-class-center font-size-36rpx lh-[--l-navbar-height,96rpx] text-center flex flex-1 absolute h-[--l-navbar-height,96rpx] w-[calc(100%-var(--l-navbar-right,190rpx))] overflow-hidden justify-center items-center left-[--l-navbar-right,190rpx] empty:(hidden)"
+        class="l-class-center l-navbar__center absolute left-[--l-navbar-right,190rpx] h-[--l-navbar-height,96rpx] w-[calc(100%-var(--l-navbar-right,190rpx))] flex flex-1 items-center justify-center overflow-hidden text-center font-size-36rpx lh-[--l-navbar-height,96rpx] empty:(hidden)"
       >
         <slot name="title" />
         <text
           v-if="props.title"
-          class="l-navbar__center-title l-class-title font-weight-[--l-navbar-title-font-weight,600] font-size-[--l-navbar-title-font-size,36rpx] text-ellipsis whitespace-nowrap overflow-hidden"
+          class="l-class-title l-navbar__center-title font-weight-[--l-navbar-title-font-weight,600] overflow-hidden text-ellipsis whitespace-nowrap font-size-[--l-navbar-title-font-size,36rpx]"
         >
           {{ showTitle }}
         </text>
       </view>
       <view
         v-if="props.right"
-        class="l-navbar__right l-class-right flex absolute items-center bottom-0 right-0 top-0 box-border mr-[theme(spacer-1)]"
+        class="l-class-right l-navbar__right absolute bottom-0 right-0 top-0 box-border flex items-center mr-[theme(spacer-1)]"
         @click="handleRightClick"
       >
         <slot name="right" />

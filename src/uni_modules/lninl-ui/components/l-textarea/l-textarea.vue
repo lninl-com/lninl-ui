@@ -273,20 +273,20 @@ function handleConfirm(e) {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-textarea px-32rpx py-32rpx flex flex-col box-border bg-[--l-textarea-background-color,theme(bg-color-container)]"
+    class="class l-class l-textarea box-border flex flex-col px-32rpx py-32rpx bg-[--l-textarea-background-color,theme(bg-color-container)]"
     :class="{
       'l-textarea--border rd-[--l-textarea-border-radius,theme(radius-default)] b-2rpx b-solid b-color-[--l-textarea-border-color,#dcdcdc]': props.bordered,
     }"
   >
-    <view class="l-textarea__label l-class-label not-empty:(pb-[--l-spacer,16rpx] font-size-[--l-font-size-base,28rpx] lh-44rpx text-ellipsis shrink-0 whitespace-nowrap overflow-hidden c-[--l-textarea-label-color,theme(font-gray-1)])">
+    <view class="l-class-label l-textarea__label not-empty:(shrink-0 overflow-hidden text-ellipsis whitespace-nowrap pb-[--l-spacer,16rpx] font-size-[--l-font-size-base,28rpx] lh-44rpx c-[--l-textarea-label-color,theme(font-gray-1)])">
       <template v-if="props.label">
         {{ props.label }}
       </template>
       <slot name="label" />
     </view>
-    <view class="l-textarea__wrapper flex flex-[1_1_auto] flex-col w-[100%] overflow-hidden">
+    <view class="l-textarea__wrapper w-[100%] flex flex-[1_1_auto] flex-col overflow-hidden">
       <textarea
-        class="l-textarea__wrapper-inner l-class-textarea p-0 m-0 bg-transparent border-[0] font-size-[--l-font-size-m,32rpx] lh-48rpx text-left flex-[1_1_auto] min-h-20px min-w-0 w-inherit resize-none box-border c-[--l-textarea-text-color,theme(font-gray-1)]"
+        class="l-textarea__wrapper-inner l-class-textarea m-0 box-border min-h-20px min-w-0 w-inherit flex-[1_1_auto] resize-none border-[0] bg-transparent p-0 text-left font-size-[--l-font-size-m,32rpx] lh-48rpx c-[--l-textarea-text-color,theme(font-gray-1)]"
         :class="{
           'l-is-disabled c-[--l-textarea-disabled-text-color,theme(font-gray-4)]': props.disabled,
         }"
@@ -323,7 +323,7 @@ function handleConfirm(e) {
       />
       <view
         v-if="props.indicator && (props.maxcharacter > 0 || props.maxlength > 0)"
-        class="l-textarea__indicator l-class-indicator not-empty:(pt-[--l-spacer,16rpx] font-size-[--l-spacer-1,24rpx] lh-40rpx text-right c-[--l-textarea-indicator-text-color,theme(font-gray-3)])"
+        class="l-textarea__indicator l-class-indicator not-empty:(pt-[--l-spacer,16rpx] text-right font-size-[--l-spacer-1,24rpx] lh-40rpx c-[--l-textarea-indicator-text-color,theme(font-gray-3)])"
       >
         {{ innerValueLength }} / {{ props.maxcharacter || props.maxlength }}
       </view>

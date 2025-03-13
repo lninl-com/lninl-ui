@@ -1,5 +1,5 @@
 <template>
-  <p class="p-16rpx bg-[#181818]">
+  <p class="bg-[#181818] p-16rpx">
     <l-button size="large" ghost theme="primary">
       幽灵按钮
     </l-button>

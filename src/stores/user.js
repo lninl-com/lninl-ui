@@ -1,6 +1,6 @@
+import { http } from '@/custom/config'
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
-import { http } from '@/custom/config'
 
 export const useUserStore = defineStore('user', () => {
   const user = ref({})

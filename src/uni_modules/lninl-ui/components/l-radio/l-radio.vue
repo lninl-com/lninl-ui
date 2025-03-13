@@ -1,5 +1,5 @@
 <script setup>
-import { computed, inject, ref, watch, watchEffect } from 'vue'
+import { computed, inject, ref, watch } from 'vue'
 
 // Props 定义
 const props = defineProps({
@@ -203,7 +203,7 @@ function radioOrgChange(e) {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-radio font-size-[--l-radio-font-size,32rpx] relative v-middle bg-[--l-radio-bg-color,theme(bg-color-container)] focus:(outline-0)"
+    class="class l-class l-radio relative v-middle font-size-[--l-radio-font-size,32rpx] bg-[--l-radio-bg-color,theme(bg-color-container)] focus:(outline-0)"
     :class="{
       'l-radio--left': placement === 'left',
       'l-radio--right flex-row-reverse': placement === 'right',
@@ -214,7 +214,7 @@ function radioOrgChange(e) {
   >
     <!-- <input type="radio" class="l-radio__original" v-bind="inputProps"> -->
     <view
-      class="l-radio__icon l-class-icon mt-[calc((var(--l-radio-label-line-height,48rpx)-var(--l-radio-icon-size,48rpx))/2)] font-size-[--l-radio-icon-size,48rpx] relative h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] overflow-hidden empty:hidden"
+      class="l-radio__icon l-class-icon relative mt-[calc((var(--l-radio-label-line-height,48rpx)-var(--l-radio-icon-size,48rpx))/2)] h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] overflow-hidden font-size-[--l-radio-icon-size,48rpx] empty:hidden"
       :class="[
         {
           'l-radio__icon--right': placement === 'right',
@@ -241,12 +241,12 @@ function radioOrgChange(e) {
         />
         <view
           v-if="checked && icon === 'dot'"
-          class="l-radio__icon-dot b-3px rd-[50%] b-solid flex absolute h-84rpx w-84rpx justify-center items-center left-[50%] top-[50%] box-border translate-[-50%,-50%] scale-50 after:(block rd-[50%] content-empty h-48rpx w-48rpx bg-[--l-radio-icon-checked-color,theme(brand-color)]) b-[--l-radio-icon-checked-color,theme(brand-color)]"
+          class="l-radio__icon-dot absolute left-[50%] top-[50%] box-border h-84rpx w-84rpx flex translate-[-50%,-50%] scale-50 items-center justify-center b-3px rd-[50%] b-solid after:(block h-48rpx w-48rpx rd-[50%] content-empty bg-[--l-radio-icon-checked-color,theme(brand-color)]) b-[--l-radio-icon-checked-color,theme(brand-color)]"
           :class="{ 'l-radio__icon-dot--disabled b-[--l-radio-icon-disabled-color,theme(brand-color-disabled)] after:(bg-[--l-radio-icon-disabled-color,theme(brand-color-disabled)])': disabled }"
         />
         <view
           v-if="!checked && (icon === 'circle' || icon === 'dot')"
-          class="l-radio__icon-circle h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] box-border after:(b-3px rd-[50%] b-solid content-empty absolute h-[calc(200%-6rpx)] w-[calc(200%-6rpx)] left-[50%] top-[50%] box-border translate-[-50%,-50%] scale-50 b-[--l-radio-icon-color,theme(component-border)])"
+          class="l-radio__icon-circle box-border h-[--l-radio-icon-size,48rpx] w-[--l-radio-icon-size,48rpx] after:(absolute left-[50%] top-[50%] box-border h-[calc(200%-6rpx)] w-[calc(200%-6rpx)] translate-[-50%,-50%] scale-50 b-3px rd-[50%] b-solid content-empty b-[--l-radio-icon-color,theme(component-border)])"
           :class="{ 'l-radio__icon-circle--disabled after:bg-[--l-radio-icon-disabled-bg-color,theme(bg-color-component-disabled)]': disabled }"
         />
         <!-- line && unchecked 为空 需要展位元素 -->
@@ -256,7 +256,7 @@ function radioOrgChange(e) {
 
     <view class="l-radio__content flex-1 empty:hidden" data-target="text" @tap="radioContentChange">
       <view
-        class="l-radio__title l-class-label peer -webkit-box-orient-[vertical] display-[-webkit-box] lh-[--l-radio-label-line-height,48rpx] overflow-hidden"
+        class="l-radio__title l-class-label -webkit-box-orient-[vertical] peer display-[-webkit-box] overflow-hidden lh-[--l-radio-label-line-height,48rpx]"
         :class="{
           'l-radio__title--checked c-[--l-radio-label-checked-color,theme(font-gray-1)]': checked,
           'c-[--l-radio-label-color,theme(font-gray-1)] ': !checked,
@@ -269,7 +269,7 @@ function radioOrgChange(e) {
       </view>
 
       <view
-        class="l-radio__description l-class-content display-[-webkit-box] font-size-[--l-radio-content-font-size,28rpx] lh-[--l-radio-content-line-height,44rpx] overflow-hidden invalid:mt-8rpx empty:hidden"
+        class="l-radio__description l-class-content display-[-webkit-box] overflow-hidden font-size-[--l-radio-content-font-size,28rpx] lh-[--l-radio-content-line-height,44rpx] invalid:mt-8rpx empty:hidden"
         :class="{
           'l-radio__description--checked c-[--l-radio-content-checked-color,theme(font-gray-2)]': checked && !disabled,
           'c-[--l-radio-content-color,theme(font-gray-2)] ': !checked,
@@ -283,7 +283,7 @@ function radioOrgChange(e) {
 
     <view
       v-if="!borderless"
-      class="l-radio__border l-class-border absolute h-1px bottom-0 left-96rpx right-0 scale-y-50 bg-[--l-radio-border-color,theme(component-stroke)]"
+      class="l-radio__border l-class-border absolute bottom-0 left-96rpx right-0 h-1px scale-y-50 bg-[--l-radio-border-color,theme(component-stroke)]"
       :class="{
         'l-radio__border--left': placement === 'left',
         'l-radio__border--right left-32rpx': placement === 'right',

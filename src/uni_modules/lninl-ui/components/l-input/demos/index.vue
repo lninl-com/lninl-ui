@@ -1,16 +1,16 @@
 <script setup>
+import alignDemo from './align.vue'
+import bannerDemo from './banner.vue'
 import baseDemo from './base.vue'
+import borderedDemo from './bordered.vue'
+import customDemo from './custom.vue'
+import labelDemo from './label.vue'
+import layoutDemo from './layout.vue'
 import maxlengthDemo from './maxLength.vue'
-import suffixDemo from './suffix.vue'
 import prefixDemo from './prefix.vue'
 import specialDemo from './special.vue'
 import statusDemo from './status.vue'
-import labelDemo from './label.vue'
-import alignDemo from './align.vue'
-import layoutDemo from './layout.vue'
-import bannerDemo from './banner.vue'
-import borderedDemo from './bordered.vue'
-import customDemo from './custom.vue'
+import suffixDemo from './suffix.vue'
 </script>
 
 <template>

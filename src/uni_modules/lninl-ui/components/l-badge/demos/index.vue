@@ -1,7 +1,7 @@
 <script setup>
 import baseDemo from './base.vue'
-import theme from './theme.vue'
 import size from './size.vue'
+import theme from './theme.vue'
 </script>
 
 <template>

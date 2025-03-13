@@ -1,9 +1,9 @@
 <script setup>
+import actionDemo from './action.vue'
 import baseDemo from './base.vue'
 import maxlengthDemo from './maxlength.vue'
-import actionDemo from './action.vue'
-import shapeDemo from './shape.vue'
 import otherDemo from './other.vue'
+import shapeDemo from './shape.vue'
 </script>
 
 <template>

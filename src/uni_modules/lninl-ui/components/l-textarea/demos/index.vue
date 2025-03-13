@@ -1,12 +1,12 @@
 <script setup>
-import baseDemo from './base.vue'
 import autosizeDemo from './autosize.vue'
+import baseDemo from './base.vue'
+import cardDemo from './card.vue'
+import customDemo from './custom.vue'
+import disabledDemo from './disabled.vue'
 import labelDemo from './label.vue'
 import maxCharacterDemo from './maxCharacter.vue'
 import maxLengthDemo from './maxLength.vue'
-import disabledDemo from './disabled.vue'
-import cardDemo from './card.vue'
-import customDemo from './custom.vue'
 </script>
 
 <template>

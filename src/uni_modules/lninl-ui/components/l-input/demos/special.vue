@@ -4,7 +4,7 @@ import { computed, ref } from 'vue'
 const phoneNumber = ref('17600600600')
 
 const isPhoneNumber = computed(() => {
-  if (/^[1][3,4,5,7,8,9][0-9]{9}$/.test(phoneNumber.value))
+  if (/^1[3,45789]\d{9}$/.test(phoneNumber.value))
     return ''
 
   return 'error'

@@ -153,7 +153,7 @@ onMounted(() => {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-tab-bar fz-16px flex flex-nowrap items-center box-border bg-[--l-tab-bar-bg-color,theme(bg-color-container)]"
+    class="class l-class l-tab-bar fz-16px box-border flex flex-nowrap items-center bg-[--l-tab-bar-bg-color,theme(bg-color-container)]"
     :class="{
       'before:(z-1) before:(absolute box-border content-empty pointer-events-none) before:(scale-y-50 origin-[0_0] right-0 left-0 top-0 border-t-1px border-t-solid b-t-color-[--l-tab-bar-border-color,theme(border-color)])':
         props.shape === 'normal' && props.bordered,

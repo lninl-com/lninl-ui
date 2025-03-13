@@ -86,7 +86,7 @@ const computedStyle = computed(() => {
 <template>
   <view
     :style="computedStyle"
-    class="l-loading font-size-[--l-loading-size,20px] inline-flex justify-center items-center color-[--l-loading-color,theme(brand-color)]"
+    class="l-loading inline-flex items-center justify-center font-size-[--l-loading-size,20px] color-[--l-loading-color,theme(brand-color)]"
     :class="[
       props.layout === 'vertical' ? 'flex-col' : '',
       props.layout === 'horizontal' ? 'flex-row v-top' : '',
@@ -96,7 +96,7 @@ const computedStyle = computed(() => {
     <!-- Indicator -->
     <view
       v-if="props.indicator"
-      class="l-loading__spinner animate-spin relative h-[100%] max-h-[100%] max-w-[100%] w-[100%] box-border" :class="[
+      class="l-loading__spinner relative box-border h-[100%] max-h-[100%] max-w-[100%] w-[100%] animate-spin" :class="[
         props.indicator ? '' : 'hidden',
         props.reverse ? 'animate-reverse' : '',
         props.theme === 'spinner' ? 'color-[theme(font-gray-1)]' : 'color-[--l-loading-color,theme(brand-color)]',
@@ -113,7 +113,7 @@ const computedStyle = computed(() => {
       <template v-if="props.theme === 'spinner'">
         <view
           v-for="n in 12" :key="n"
-          class="l-loading__dot absolute h-[100%] w-[100%] left-0 top-0 before:(mx-auto my-0 block bg-[currentColor] border-rd-[40%] content-empty h-[25%] w-5rpx)"
+          class="l-loading__dot absolute left-0 top-0 h-[100%] w-[100%] before:(mx-auto my-0 block h-[25%] w-5rpx border-rd-[40%] bg-[currentColor] content-empty)"
           :style="{
             transform: `rotate(${n * 30}deg)`,
             opacity: (1 / 12) * (n - 1),
@@ -121,14 +121,14 @@ const computedStyle = computed(() => {
         />
       </template>
       <view
-        v-else-if="props.theme === 'circular'" class="l-loading__circular border-rd-[100%] h-[100%] w-[100%]" style="background: conic-gradient(from 180deg at 50% 50%,rgba(255, 255, 255, 0) 0deg,rgba(255, 255, 255, 0) 60deg,currentColor 330deg,rgba(255, 255, 255, 0) 360deg);
+        v-else-if="props.theme === 'circular'" class="l-loading__circular h-[100%] w-[100%] border-rd-[100%]" style="background: conic-gradient(from 180deg at 50% 50%,rgba(255, 255, 255, 0) 0deg,rgba(255, 255, 255, 0) 60deg,currentColor 330deg,rgba(255, 255, 255, 0) 360deg);
 mask: radial-gradient(transparent calc(50% - 1rpx), #fff 50%);
 -webkit-mask: radial-gradient(transparent calc(50% - 1rpx), #fff 50%);"
       />
       <template v-else-if="props.theme === 'dots'">
         <view
           v-for="n in 3" :key="n"
-          class="l-loading__dot animate-dotting animate-ease-linear animate-both animate-iteration-infinite bg-[currentColor] border-rd-[50%] h-[20%] w-[20%]"
+          class="l-loading__dot animate-dotting h-[20%] w-[20%] animate-ease-linear animate-both animate-iteration-infinite border-rd-[50%] bg-[currentColor]"
           :style="[
             props.duration ? { animationDuration: `${props.duration / 1000}s`,
                                animationDelay: `${(props.duration * n) / 3000}s` } : '',

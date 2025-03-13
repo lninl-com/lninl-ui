@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 
 // Props 定义
 const props = defineProps({
@@ -45,7 +45,7 @@ const computedStyle = computed(() => {
 </script>
 
 <template>
-  <view v-if="props.title" class="class l-cell-group__title l-class-title font-PingFangSC-Regular fz-[--l-cell-group-title-font-size,28rpx] pl-[--l-cell-group-title-padding-left,32rpx] lh-[--l-cell-group-title-line-height,90rpx] text-left bg-[--l-cell-group-title-bg-color,theme(bg-color-secondarycontainer)] color-[--l-cell-group-title-color,theme(font-gray-3)]">
+  <view v-if="props.title" class="class l-class-title l-cell-group__title fz-[--l-cell-group-title-font-size,28rpx] font-PingFangSC-Regular pl-[--l-cell-group-title-padding-left,32rpx] text-left lh-[--l-cell-group-title-line-height,90rpx] bg-[--l-cell-group-title-bg-color,theme(bg-color-secondarycontainer)] color-[--l-cell-group-title-color,theme(font-gray-3)]">
     {{ props.title }}
   </view>
   <view

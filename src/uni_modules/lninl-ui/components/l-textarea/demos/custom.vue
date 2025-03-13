@@ -3,7 +3,7 @@
     <text class="textarea-example__label">
       标签文字
     </text>
-    <l-textarea class="textarea" placeholder="请输入文字" bordered :maxlength="100" indicator :disable-default-padding="true" custom-style="height:248rpx" />
+    <l-textarea class="textarea" placeholder="请输入文字" :maxlength="100" indicator bordered :disable-default-padding="true" custom-style="height:248rpx" />
   </div>
 </template>
 

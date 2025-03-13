@@ -81,7 +81,7 @@ function getBadgeAriaLabel() {
   }
   return 'TabBar'
 }
-// eslint-disable-next-line no-unused-vars, unused-imports/no-unused-vars
+// eslint-disable-next-line unused-imports/no-unused-vars
 const ariaLabel = ref(getBadgeAriaLabel())
 
 const iconOnly = ref(false)
@@ -149,7 +149,7 @@ const computedStyle = computed(() => {
 <template>
   <view
     :style="computedStyle"
-    class="class l-class l-tab-bar-item px-24rpx py-0 mx-0 my-16rpx flex-1 relative h-[--l-tab-bar-height,80rpx] select-none box-border " :class="{
+    class="class l-class l-tab-bar-item relative mx-0 my-16rpx box-border h-[--l-tab-bar-height,80rpx] flex-1 select-none px-24rpx py-0" :class="{
       'l-tab-bar-item--split before:(top-0 bottom-0 left-0 b-l-1px b-l-solid b-l-color-[--l-tab-bar-border-color,theme(border-color)] scale-x-50 absolute box-border content-empty pointer-events-none) before:(top-16rpx bottom-16rpx)':
         split,
       'l-tab-bar-item--text-only font-size-32rpx': !props.icon,
@@ -159,7 +159,7 @@ const computedStyle = computed(() => {
     }"
   >
     <view
-      class="l-tab-bar-item__content flex flex-col h-100% w-100% justify-center items-center" :class="{
+      class="l-tab-bar-item__content h-100% w-100% flex flex-col items-center justify-center" :class="{
         'l-tab-bar-item__content--tag b-rd-99px': theme === 'tag',
         'l-tab-bar-item__content b-rd-16rpx ': theme !== 'tag',
         'l-tab-bar-item__content--tag bg-[--l-tab-bar-active-bg,theme(brand-color-light)]': theme === 'tag' && isChecked,
@@ -200,18 +200,18 @@ const computedStyle = computed(() => {
     <view
       v-if="hasChildren && isSpread"
       role="menu"
-      class="l-tab-bar-item__spread b-rd-12rpx absolute w-86% left-7% top-0 z-1 translate-x-0 translate-y-[calc(-100%-32rpx)] translate-z-0 transform-gpu before:(block b-16rpx b-t-16rpx b-transparent b-solid b-t-solid content-empty absolute h-0 w-0 bottom-0 left-50% translate-x--50% translate-y-30rpx translate-z-0 transform-gpu b-t-color-[--l-tab-bar-bg-color,theme(bg-color-container)]) bg-[--l-tab-bar-bg-color,theme(bg-color-container)] color-[--l-tab-bar-color,theme(text-color-primary)] shadow-[--l-tab-bar-spread-shadow,theme(shadow-3)]"
+      class="l-tab-bar-item__spread absolute left-7% top-0 z-1 w-86% translate-x-0 translate-y-[calc(-100%-32rpx)] translate-z-0 transform-gpu b-rd-12rpx before:(absolute bottom-0 left-50% block h-0 w-0 translate-x--50% translate-y-30rpx translate-z-0 transform-gpu b-16rpx b-t-16rpx b-transparent b-solid b-t-solid content-empty b-t-color-[--l-tab-bar-bg-color,theme(bg-color-container)]) bg-[--l-tab-bar-bg-color,theme(bg-color-container)] color-[--l-tab-bar-color,theme(text-color-primary)] shadow-[--l-tab-bar-spread-shadow,theme(shadow-3)]"
     >
       <view
         v-for="(child, index) in subTabBar"
         :key="index"
         role="tab"
-        class="l-tab-bar-item__spread-item flex flex-col relative h-96rpx w-100% justify-start items-center active:(bg-[--l-tab-bar-hover-bg-color,theme(border-color)])"
+        class="l-tab-bar-item__spread-item relative h-96rpx w-100% flex flex-col items-center justify-start active:(bg-[--l-tab-bar-hover-bg-color,theme(border-color)])"
         @click="selectChild(child.value || index)"
       >
         <view
           v-if="index !== 0"
-          class="l-tab-bar-item__spread-item-split content-empty h-2rpx w-80% pointer-events-none box-border translate-y-0.5 bg-[--l-tab-bar-spread-border-color,theme(border-color)]"
+          class="l-tab-bar-item__spread-item-split pointer-events-none box-border h-2rpx w-80% translate-y-0.5 content-empty bg-[--l-tab-bar-spread-border-color,theme(border-color)]"
         />
         <view class="l-tab-bar-item__spread-item-text pt-24rpx">
           {{ child.label }}

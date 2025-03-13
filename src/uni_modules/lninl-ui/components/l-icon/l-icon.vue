@@ -63,7 +63,7 @@ function click(e) {
     </view>
     <label
       v-else
-      class="l-icon l-icon-base variant-normal block font-normal lh-100% normal-case text-center font-not-italic antialiased"
+      class="l-icon l-icon-base variant-normal block text-center font-normal lh-100% normal-case font-not-italic antialiased"
       :class="`l-icon-${props.name}`"
     />
   </view>

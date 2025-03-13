@@ -251,9 +251,9 @@ function handleSearch(e) {
 </script>
 
 <template>
-  <view :style="computedStyle" class="class l-class l-search flex justify-between items-center">
+  <view :style="computedStyle" class="class l-class l-search flex items-center justify-between">
     <view
-      class="l-search__input-box l-class-input-container p-[--l-search-padding,16rpx_24rpx] border-2rpx border-solid flex flex-1 h-[--l-search-height,80rpx] items-center box-border bg-[--l-search-bg-color,theme(bg-color-secondarycontainer)] border-[--l-search-bg-color,theme(bg-color-secondarycontainer)]"
+      class="l-search__input-box l-class-input-container box-border h-[--l-search-height,80rpx] flex flex-1 items-center border-2rpx border-solid p-[--l-search-padding,16rpx_24rpx] border-[--l-search-bg-color,theme(bg-color-secondarycontainer)] bg-[--l-search-bg-color,theme(bg-color-secondarycontainer)]"
       :class="[
         focused ? 'l-is-focused b-color-[--l-search-bg-color,theme(bg-color-secondarycontainer)]' : 'l-not-focused',
         props.center ? 'l-search__input-box--center text-center' : '',
@@ -273,7 +273,7 @@ function handleSearch(e) {
 
       <input
         :type="props.type" name="input" :maxlength="props.maxlength" :maxcharacter="props.maxcharacter" :disabled="props.disabled"
-        class="l-input__keyword l-class-input pl-10rpx inline-block lh-48rpx flex-1 min-h-48rpx font-size-[--l-search-font-size,theme(font-size-m)] color-[--l-search-text-color,theme(font-gray-1)]"
+        class="l-class-input l-input__keyword inline-block min-h-48rpx flex-1 pl-10rpx lh-48rpx font-size-[--l-search-font-size,theme(font-size-m)] color-[--l-search-text-color,theme(font-gray-1)]"
         :focus="focused" :value="innerValue" :confirm-type="props.confirmType" :confirm-hold="props.confirmHold"
         :cursor="props.cursor" :adjust-position="props.adjustPosition" :always-embed="props.alwaysEmbed"
         :selection-start="props.selectionStart" :selection-end="props.selectionEnd" :hold-keyboard="holdKeyboard"
@@ -285,7 +285,7 @@ function handleSearch(e) {
       >
       <view
         v-if="innerValue && props.clearable"
-        class="l-search__clear l-class-clear ml-10px relative after:(block content-empty absolute bottom-0 left-0 right-0 top-0 scale-150) color-[--l-search-clear-icon-color,theme(font-gray-3)]"
+        class="l-search__clear l-class-clear relative ml-10px after:(absolute bottom-0 left-0 right-0 top-0 block scale-150 content-empty) color-[--l-search-clear-icon-color,theme(font-gray-3)]"
         aria-role="button" aria-label="清除" @click="handleClear"
       >
         <l-icon name="close-circle-filled" size="24" />
